@@ -1,18 +1,3 @@
-#ifndef BIBLIOTECA_HPP
-#define BIBLIOTECA_HPP
-#include <iostream>
-
-#ifndef Fila
-#include <queue>
-#define Fila std::queue
-#endif // Fila
-
-#ifndef Pilha
-#include <stack>
-#define Pilha std::stack
-#endif // Pilha
-
-
 class Expressao{
     std::string exp;
     public:
