@@ -1,7 +1,7 @@
 #include <iostream>
 #include "header.hpp"
 /**
- *  @brief O objetio é definir o tipo de dados da classe lista
+ *  @brief O objetivo é definir o tipo de dados da classe lista
  *  e a implementação de suas funções. 
  */
  
