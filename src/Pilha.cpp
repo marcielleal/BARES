@@ -25,28 +25,35 @@ bool Pilha<P>::_duplica(){				//Duplicar o vetor caso tenha enchido
 	return true;
 }
 template<typename P>
-int Pilha<P>::size() const{
+int Pilha<P>::size() const
+{
+	if(this->pt_Pilha==NULL) return false;
+
 	return this->tamanho;
 }
-
-template <typename P>
-bool Pilha<P>::empty() const{
-	return (this->tamanho==0);
+template<typename P>
+bool Pilha<P>::Full() const
+{
+	if(pt_Pilha==NULL) return true;
+	return (this->tamanho==this->_MaxSz);
 }
-
 template <typename P>
-bool Pilha<P>::push(P _data){
+bool Pilha<P>::empty() const
+{
+	return this->tamanho==0;
+}
+template <typename P>
+bool Pilha<P>::push(P _data)  // insere
+{
 	if(pt_Pilha==NULL) return false;
-	if(this->capacidade==this->tamanho)
-		if(!this->_duplica()) return false;
 	this->pt_Pilha[this->tamanho] = _data;
 	tamanho++;
 	return true;
 }
-
 template <typename P>
-bool Pilha<P>::pop(){
-	if(pt_Pilha == NULL ||this->empty())
+bool Pilha<P>::pop() //remove
+{
+	if(pt_Pilha == NULL || this->empty())
 		return false;
 	this->tamanho--;
 	return true;

@@ -42,7 +42,7 @@ bool Fila<F>::empty() const
 template <typename F>
 bool Fila<F>::push(F _data) // insere
 {
-	//if(pt_fila==NULL) return false;
+	if(pt_fila==NULL) return false;
 	if(full()) return false;
 	if(this->inicio==-1) this->inicio=0;
 	this->fim = (fim+1)%this->_MaxSz;
