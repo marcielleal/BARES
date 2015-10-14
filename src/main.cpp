@@ -2,14 +2,14 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-/*
+/***
 #include "header.hpp"
 #include "expressao.cpp"
 #include "simbolo.cpp"
 #include "erro.cpp"
 #include "Pilha.cpp"
 #include "Fila.cpp"
-*/
+***/
 
 int main (int argc, char *argv[]){
     std::ostream* pOut;
