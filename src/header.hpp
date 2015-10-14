@@ -62,7 +62,7 @@ class Fila{
 };
 /** @brief Classe Erro guarda strings que descrevem tipos de erros de uma expressão matemática
  *Considerando os tipos de
- */
+ **/
 class Erro{
     std::string str[9]={"Constante numérica inválida: um dos operandos da expressão está fora da faixa permitida. (Coluna: ",
                             "Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: ",
