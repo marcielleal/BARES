@@ -11,7 +11,7 @@ class Pilha{
 		int capacidade;
 		bool _duplica(void);
 	public:
-		Pilha(int _MaxSz=25);
+		Pilha(int _MaxSz=50);
 		~Pilha(void);
 
 		bool pop();
@@ -60,6 +60,9 @@ class Fila{
 			return _os;
 		}
 };
+/** @brief Classe Erro guarda strings que descrevem tipos de erros de uma expressão matemática
+ *Considerando os tipos de
+ */
 class Erro{
     std::string str[9]={"Constante numérica inválida: um dos operandos da expressão está fora da faixa permitida. (Coluna: ",
                             "Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: ",
@@ -73,7 +76,7 @@ class Erro{
     int erro;
     int col;
     public:
-        Erro(int i=0,int col=0);
+        Erro(int i=1,int col=0);
         inline friend
 		std::ostream &operator <<(std::ostream &_os,const Erro &_oErr){
 			_os<<_oErr.str[_oErr.erro-1]<<_oErr.col<<")";
@@ -84,9 +87,7 @@ class Simbolo{
 	std::string simb;
 	int coluna;
 	public:
-		Simbolo(std::string simb,int col);
-		Simbolo(std::string simb);
-		Simbolo(void);
+		Simbolo(std::string simb="",int col=0);
 		bool isOperand(void) const;
 		bool isOperator(void) const;
 		int prec() const;
@@ -115,6 +116,8 @@ class Simbolo{
 };
 class Expressao{
     std::string exp;
+    Fila<Simbolo> tokens;
+    Fila<Erro> erros;
     public:
         Expressao(std::string exp);
         std::string getExp(void);
@@ -136,7 +139,6 @@ class Expressao{
         std::string subStr(unsigned int i,unsigned int j);
         int extSintFromStr(Simbolo &num,unsigned int inicio);
         int extSMinusFromStr(Simbolo &num,unsigned int inicio);
-
 };
 
 
