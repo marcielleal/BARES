@@ -73,8 +73,7 @@ class Erro{
     int erro;
     int col;
     public:
-        Erro(int i,int col);
-        Erro();
+        Erro(int i=0,int col=0);
         inline friend
 		std::ostream &operator <<(std::ostream &_os,const Erro &_oErr){
 			_os<<_oErr.str[_oErr.erro-1]<<_oErr.col<<")";
