@@ -36,6 +36,7 @@ Fila<F>::~Fila(){
 }
  /**
   * A função size retorna o tamanho da fila.
+  * @return this->tamanho
   */
 template <typename F>
 int Fila<F>::size() const
@@ -46,6 +47,7 @@ int Fila<F>::size() const
 }
  /**
   * A função full retorna verdadeiro se a fila estiver cheia e falso caso não.
+  * @return true or false
   */
 template <typename F>
 bool Fila<F>::full() const
@@ -56,6 +58,7 @@ bool Fila<F>::full() const
 }
  /**
   * Empty retorna true se fila estiver vazia.
+  * @return true or false
   */
 template <typename F>
 bool Fila<F>::empty() const
@@ -68,6 +71,11 @@ bool Fila<F>::empty() const
   * 
   * "push" recebe um argumento _data e, caso a fila seja válida e não estiver cheia, testa se está vazia
   * para então inserir o elemento e incrementar o tamanho da fila.
+  * @see pt_fila ponteiro para o primeiro elemento da fila
+  * @see full()
+  * @see inicio
+  * @see fim
+  * @see tamanho
   */
 template <typename F>
 bool Fila<F>::push(F _data) 
@@ -85,6 +93,11 @@ bool Fila<F>::push(F _data)
   * 
   * Primeiro a função avalia se a fila foi criada/é válida para então remover o primeiro elemento da fila e
   * decrementar o tamanho. Retorna true caso dê certo.
+  * @see pt_fila
+  * @see empty()
+  * @see inicio
+  * @see tamanho
+  * @return true or false
   */
 template <typename F>
 bool Fila<F>::pop()		//remove
@@ -97,7 +110,9 @@ bool Fila<F>::pop()		//remove
 }
  /**
   * front retorna o primeiro elemento da fila.
-  * 
+  * @see pt_fila
+  * @see inicio
+  * @return pt_fila[inicio]
   */
 template <typename F>
 F Fila<F>::front() const
@@ -106,7 +121,9 @@ F Fila<F>::front() const
 }
  /**
   * back retorna o último elemento da fila. 
-  * 
+  * @see pt_fila
+  * @see fim
+  * @return pt_fila[fim]
   */
 template <typename F>
 F Fila<F>::back() const
