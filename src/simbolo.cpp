@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
@@ -24,14 +25,6 @@ Simbolo Simbolo::operator+=(T s){
 Simbolo::Simbolo(std::string simb,int col){
 	this->simb=simb;
 	this->coluna=col;
-}
-Simbolo::Simbolo(std::string simb){
-	this->simb=simb;
-	this->coluna=0;
-}
-Simbolo::Simbolo(void){
-	this->simb="";
-	this->coluna=0;
 }
 bool Simbolo::isOperand(void) const{
 	bool flag;
@@ -66,6 +59,9 @@ int Simbolo::prec() const{
 	}
 	return 5;
 }
+int Simbolo::getCol(void) const{
+    return this->coluna;
+}
 int Simbolo::getInt() const{
 	if(isOperand())
 		return atoi(this->simb.c_str());
@@ -73,9 +69,6 @@ int Simbolo::getInt() const{
 	for(unsigned int i=0;i<this->simb.length();i++)
 		soma+=simb[i];
 	return soma;
-}
-void Simbolo::setSimb(std::string str){
-	this->simb=str;
 }
 std::string Simbolo::getSimb() const{
 	return this->simb;
@@ -86,21 +79,17 @@ bool Simbolo::isOpenPar() const{
 bool Simbolo::isClosePar()const{
 	return (this->simb==")");
 }
-int Simbolo::aplic(int a,int b) const{
-	if(isOperator()){
+bool Simbolo::aplic(int a,int b,int &res) const{
+	res=0;
+	if(this->isOperator()){
 		switch(this->simb[0]){
-			case '+': return a+b;
-			case '-': return a-b;
-			case '*': return a*b;
-			case '/':
-                if(b==0){
-                    std::cout<<"Divisão por zero: Houve uma divisão cujo quociente é zero. Coluna: "<<this->coluna+1<<")"<<std::endl;
-                    exit(1);
-                }return a/b;
-			return a/b;
-			case '%': return a%b;
-			case '^': return (int)pow(a,b);
+			case '+': res=a+b; return true;
+			case '-': res=a-b; return true;
+			case '*': res=a*b; return true;
+			case '^': res=(int)pow(a,b); return true;
+            case '/': if(b==0) return false; res= a/b;return true;
+            case '%': if(b==0) return false; res= a%b;return true;
 		}
 	}
-	return 0;
+	return false;
 }
