@@ -8,6 +8,7 @@
 #include "Pilha.cpp"
 #include "Fila.cpp"
 #endif // DEF
+
 void Expressao::setExp(std::string e){
     this->exp=e;
 }
@@ -123,13 +124,13 @@ bool Expressao::tokeniza(void){
         if(this->isValChar(i)){
             if(this->isDigit(i)){
                 if(!isLastOpt&&token!="("){
-                    erros.push(Erro(5,i-1));
+                    this->erros.push(Erro(5,i-1));
                 }
                 if(!isLastUnrMinus)
                     token="";
                 int aux=this->extSintFromStr(token,i);
                 if(!this->isValOpd(i,aux)){
-                    erros.push(Erro(1,i));
+                    this->erros.push(Erro(1,i));
                     token="0";
                 }
                 token.setCol(i);
@@ -139,22 +140,26 @@ bool Expressao::tokeniza(void){
                 isLastUnrMinus=0;
             }else if(this->isParnt(i)){
                 if(this->getExp()[i]=='('){
+                    if(isLastUnrMinus){
+                        token="-";
+                        this->tokens.push(token);
+                        isLastUnrMinus=0;
+                    }
                     if(!isLastOpt&&token!="(")
-                        erros.push(Erro(5,i));
+                        this->erros.push(Erro(5,i));
                     contPar.push(i);
                 }else{
                     if(isLastOpt&&!this->tokens.empty())
-                        erros.push(Erro(2,i));       //ERROR: ultimo eh operador
+                        this->erros.push(Erro(2,i));       //ERROR: ultimo eh operador
                     if(!contPar.empty()){                   //Se houver parentese abraindo
                         if(token=="(")
-                            erros.push(Erro(9,i));
+                            this->erros.push(Erro(9,i));
                         contPar.pop();
                     }else
-                        erros.push(Erro(6,i));       //ERROR: fechando sem abrir
+                        this->erros.push(Erro(6,i));       //ERROR: fechando sem abrir
                 }
 
-                if(!isLastUnrMinus)
-                    token="";
+                token="";
                 token+=this->getChar(i);
                 token.setCol(i);
                 this->tokens.push(token);
@@ -166,24 +171,29 @@ bool Expressao::tokeniza(void){
                     if(!isLastOpt){
                         if(!contPar.empty()){
                             if(token=="(")
-                                erros.push(Erro(2,i));
+                                this->erros.push(Erro(2,i));
                         }
                     }else
-                        erros.push(Erro(2,i));
-
-                    if(!isLastUnrMinus)
-                        token="";
+                        this->erros.push(Erro(2,i));
+                    token="";
                     token+=this->getChar(i);
                     isLastUnrMinus=0;
                 }else{
-                    Simbolo num;
-                    int aux=this->extSMinusFromStr(num,i);
-                    if(num.getSimb().length()>0){
-                        if(isLastOpt||token.getSimb()=="("){
-                            isLastUnrMinus=1;
-                        }else isLastUnrMinus=0;
-                    }token=num;
-                    i=aux;
+                    if(!isLastOpt&&token.getSimb()!="("){
+                        token="";
+                        token+=this->getChar(i);
+                        isLastUnrMinus=0;
+                    }else{
+                        Simbolo num;
+                        int aux=this->extSMinusFromStr(num,i);
+                        if(num.getSimb().length()>0){
+                            if(isLastOpt||token.getSimb()=="("){
+                                isLastUnrMinus=1;
+                            }else isLastUnrMinus=0;
+                        }
+                        token=num;
+                        i=aux;
+                    }
                 }
                 if(!isLastUnrMinus&&token.getSimb().length()>0){
                     token.setCol(i);
@@ -192,7 +202,7 @@ bool Expressao::tokeniza(void){
                 isLastOpt=1;
             }
         }else if(this->isnValOpt(i)){
-            erros.push(Erro(4,i+1));
+            this->erros.push(Erro(4,i+1));
             isLastOpt=0;
             if(!isLastUnrMinus)
                 token="";
@@ -202,12 +212,12 @@ bool Expressao::tokeniza(void){
             isLastUnrMinus=0;
         }else if(this->getChar(i)=='\n'){
             if(isLastOpt)
-                erros.push(Erro(2,i));
+                this->erros.push(Erro(2,i));
             if(!contPar.empty())
-                erros.push(Erro(7,i));
+                this->erros.push(Erro(7,i));
             break;
         }else{
-            erros.push(Erro(3,i+1));
+            this->erros.push(Erro(3,i+1));
             isLastOpt=0;
             if(!isLastUnrMinus)
                 token="";
@@ -220,25 +230,27 @@ bool Expressao::tokeniza(void){
     //O main.cpp nao le o \n do teclado
     if(this->getChar(i-1)!='\n'){
         if(isLastOpt)
-            erros.push(Erro(2,i));
+            this->erros.push(Erro(2,i));
         if(!contPar.empty())
-            erros.push(Erro(7,i));
+            this->erros.push(Erro(7,i));
     }
     if(erros.empty()&&!this->tokens.empty())
         return true;
-    while(!this->tokens.empty()){
-        this->tokens.pop();
-    }
+
+    if(!this->tokens.empty())
+        this->tokens.clear();
+
     return false;
 }
 void Expressao::inf2PosFix(void){
     this->fila.clear();
-
-	Simbolo simb;
+    std::cout<<this->tokens<<std::endl;
+	Simbolo simb("",0);
 	Pilha<Simbolo> pilhaAux;
 	while(!this->tokens.empty()){
 		simb=this->tokens.front();
 		this->tokens.pop();
+
 		if(simb.isOperand()){                               //Se for operando
 			this->fila.push(simb);
 		}
@@ -269,6 +281,10 @@ void Expressao::inf2PosFix(void){
 				pilhaAux.push(simb);
 			}
 		}
+		Simbolo a;
+		if(pilhaAux.empty()) a="ABACATE";
+		else a=pilhaAux.top();
+		//std::cout<<"BACK: "<<fila.back()<<" SIM: "<< simb<<" SIZE:"<<fila.size()<<" TOPO: "<<a<<" \n";
 	}while(!pilhaAux.empty()){
 		if(pilhaAux.top().isOpenPar())
 			pilhaAux.pop();
@@ -280,7 +296,10 @@ void Expressao::inf2PosFix(void){
 }
 
 int Expressao::avalPosFixa(void){
-	Simbolo simb;
+	std::cout<<"BACaK:"<<this->fila<<"\n";
+	std::cout<<"BACbK:"<<this->fila<<"\n";
+	std::cout<<this->fila;
+	Simbolo simb("",0);
 	Pilha<int> pilhaOpnd;
 
 	int opnd1,opnd2;
@@ -295,11 +314,14 @@ int Expressao::avalPosFixa(void){
 		else{
 			opnd2=pilhaOpnd.top();
 			pilhaOpnd.pop();
-			opnd1=pilhaOpnd.top();
+
+            opnd1=pilhaOpnd.top();
 			pilhaOpnd.pop();
 
-			if(!simb.aplic(opnd1,opnd2,resultado));
-                this->erros.push(Erro(8,simb.getCol()));
+			if(!simb.aplic(opnd1,opnd2,resultado)){
+                this->erros.push(Erro(8,simb.getCol()+1));  //getCol irá mostrar a coluna do / na expressão original
+                return 0;
+            }
 			pilhaOpnd.push(resultado);
 		}
 	}if(!pilhaOpnd.empty()){
@@ -312,6 +334,7 @@ int Expressao::avalPosFixa(void){
 bool Expressao::exprValue(int &res){
     if(this->tokeniza()){
         this->inf2PosFix();
+        std::cout<<"OKOKOKOKO: "<<this->fila<<"\n";
         int i=this->avalPosFixa();
         if(this->erros.empty()){
             res=i;
@@ -319,19 +342,17 @@ bool Expressao::exprValue(int &res){
         }
     }return false;
 }
-Fila<Erro> Expressao::getErros(void){
-    return this->erros;
+void Expressao::getErros(void){
+    std::cout<<this->erros;
 }
 
 #ifdef DEF
 int main(void){
-    Expressao e("12+18*15");
-
+    Expressao e("12-1-(-(-(-2)))");
+    int i;
     e.tokeniza();
-    e.inf2PosFix();
-    e.imprime();
-
-
+    if(e.exprValue(i)) std::cout<<i<<std::endl;
+    std::cout<<e;
     return 0;
 }
 #endif

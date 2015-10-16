@@ -6,7 +6,7 @@ template<typename F>
 Fila<F>::Fila(int _MaxSz){
 	this->pt_fila=new F[_MaxSz];
 	if(this->pt_fila){
-		this->_MaxSz=_MaxSz;
+		this->capacidade=_MaxSz;
 		this->tamanho=0;
 		this->inicio=-1;
 		this->fim=-1;
@@ -30,7 +30,7 @@ template <typename F>
 bool Fila<F>::full() const
 {
 	if(pt_fila==NULL) return true;
-	if(this->tamanho==this->_MaxSz) return true;
+	if(this->tamanho==this->capacidade) return true;
 	else return false;
 }
 
@@ -42,12 +42,15 @@ bool Fila<F>::empty() const
 }
 
 template <typename F>
-bool Fila<F>::push(F _data) 
+bool Fila<F>::push(F _data)
 {
 	if(pt_fila==NULL) return false;
-	if(full()) return false;
+/*	if(this->full())
+        if(!this->_duplica())
+            return false;
+*/
 	if(this->inicio==-1) this->inicio=0;
-	this->fim = (fim+1)%this->_MaxSz;
+	this->fim = (fim+1)%this->capacidade;
 	this->pt_fila[fim] = _data;
 	this->tamanho++;
 	return true;
@@ -58,7 +61,11 @@ bool Fila<F>::pop()		//remove
 {
 	if(pt_fila == NULL || this->empty())
 		return false;
-	this->inicio = (this->inicio+1)%this->_MaxSz;
+    if(this->inicio==this->fim){
+        this->inicio=-1;
+        this->fim=-1;
+    }
+	this->inicio = (this->inicio+1)%this->capacidade;
 	this->tamanho--;
 	return true;
 }
@@ -73,4 +80,23 @@ template <typename F>
 F Fila<F>::back() const
 {
 	return this->pt_fila[this->fim];
+}
+template <typename F>
+void Fila<F>::clear(void){
+    while(!this->empty())
+        this->pop();
+}
+template<typename F>
+bool Fila<F>::_duplica(){
+	F *aux=this->pt_fila;
+	F *novo=new F[this->capacidade*2];
+	if(!novo) return false;
+	for(int i=this->inicio,j=0;j<this->capacidade;i=(i+1)%this->capacidade,j++)
+        novo[j]=aux[i];
+	this->pt_fila=novo;
+	delete [] aux;
+	this->inicio=0;
+    this->fim=this->tamanho-1;
+	this->capacidade*=2;
+	return true;
 }

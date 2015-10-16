@@ -93,3 +93,4 @@ bool Simbolo::aplic(int a,int b,int &res) const{
 	}
 	return false;
 }
+

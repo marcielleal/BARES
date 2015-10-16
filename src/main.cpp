@@ -6,9 +6,9 @@
 #include "expressao.cpp"
 #include "erro.cpp"
 #include "header.hpp"
+
 #include "Pilha.cpp"
 #include "Fila.cpp"
-
 
 int main (int argc, char *argv[]){
     std::ostream* pOut;
@@ -41,15 +41,19 @@ int main (int argc, char *argv[]){
 		return 1;
 	}
     Expressao e;
+    int i;
     while(!inputFile.fail()){
 		inputFile.getline(buff, 500);
 		e.setExp(buff);
-		if(e.tokeniza()){
-            e.inf2PosFix();
-            //std::cout<<e.avalPosFixa()<<std::endl;
-        }std::cout<<"--------------\n"<<e;
+		std::cout<<e.getExp()<<std::endl;
+		if(e.exprValue(i))
+            std::cout<<i<<std::endl;
+		else e.getErros();
+        std::cout<<e;
+        std::cout<<"--------------\n";
+    }
+    std::cout<<"CARALEO\n";
 
-	}
 	inputFile.close();
 
 	if(argc>2)

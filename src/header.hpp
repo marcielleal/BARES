@@ -15,7 +15,6 @@ class Pilha{
 	protected:
 		P *pt_Pilha;
 		int tamanho;
-		int _MaxSz;
 		int capacidade;
  /**
  * @brief _duplica() Duplica a pilha caso tenha alcançado a capacidade máxima
@@ -75,6 +74,7 @@ class Pilha{
 		bool empty() const;
 
 
+
 		inline friend
 		std::ostream &operator <<(std::ostream &_os,const Pilha &_obj){
 			_os<<"[ ";
@@ -98,10 +98,11 @@ template<typename F>
 class Fila{
 	protected:
 		F *pt_fila;
-		int _MaxSz;
 		int inicio;
 		int fim;
 		int tamanho;
+        bool _duplica();
+        int capacidade;
 	public:
 		Fila(int _MaxSz=50);
   /**
@@ -159,15 +160,15 @@ class Fila{
   * @return this->tamanho
   */
         	int size() const;
-  /*
+        	void clear(void);
+  /**
   * sobrecarga do operador <<
-  **/
+  */
+
         inline friend
 		std::ostream &operator <<(std::ostream &_os,const Fila &_obj){
-			_os<<"[";
 			for(int i=0;i<_obj.tamanho;i++)
-				_os<<_obj.pt_fila[(_obj.inicio+i)%_obj._MaxSz]<<" ";
-			_os<<"]"<<std::endl;
+				_os<<_obj.pt_fila[(_obj.inicio+i)%_obj.capacidade]<<",";
 			return _os;
 		}
 };
@@ -182,8 +183,8 @@ class Erro{
                             "Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: ",
                             "Fechamento de escopo inválido: existe um parêntese fechando sem haver um parêntese abrindo correspondente. (Coluna: ",
                             "Escopo aberto: existe um parêntese de abertura '(' sem um parêntese de fechamento ')' correspondente. (Coluna: ",
-                            "Divisão por zero: Houve uma divisão cujo quociente é zero. Coluna: ",
-                            "Parênteses desnecessários: Parênteses sem nada em seu interior. Coluna: "};
+                            "Divisão por zero: Existe uma divisão cujo divisor é zero. (Coluna: ",
+                            "Parênteses desnecessários: Parênteses sem nada em seu interior. (Coluna: "};
     int erro;
     int col;
     public:
@@ -235,12 +236,12 @@ class Expressao{
     *
     * @return true a tokenização for bem-sucedida
     */
-    bool tokeniza(void);
+
     /**@brief Separa os termos da expressão exp
     *
     * @return true a tokenização for bem-sucedida
     */
-    bool inf2PosFix(void);
+
     /**@brief Separa os termos da expressão exp
     *
     * @return true a tokenização for bem-sucedida
@@ -248,6 +249,8 @@ class Expressao{
     int avalPosFixa(void);
 
     public:
+        void inf2PosFix(void);
+        bool tokeniza(void);
         /**@brief Construtor de Expressao*/
         Expressao(std::string exp="");
 
@@ -269,7 +272,7 @@ class Expressao{
         /**@brief Retorna a fila de erros contidos na expressão exp
         * @return fila de erros da expressão(membro erros da classe)
         */
-        Fila<Erro> getErros(void);
+        void getErros(void);
 
         /**@brief Avalia se um caractere é um dígito
         * @param c é um índice qualquer do atributo exp

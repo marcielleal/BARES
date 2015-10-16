@@ -24,6 +24,7 @@ bool Pilha<P>::_duplica(){
         novo[i]=aux[i];
 	this->pt_Pilha=novo;
 	delete [] aux;
+	this->capacidade*=2;
 	return true;
 }
 
@@ -39,7 +40,7 @@ template<typename P>
 bool Pilha<P>::Full() const
 {
 	if(pt_Pilha==NULL) return true;
-	return (this->tamanho==this->_MaxSz);
+	return (this->tamanho==this->capacidade);
 }
 
 template <typename P>
@@ -52,6 +53,9 @@ template <typename P>
 bool Pilha<P>::push(P _data)  // insere
 {
 	if(pt_Pilha==NULL) return false;
+    if(this->Full())
+        if(!this->_duplica())
+            return false;
 	this->pt_Pilha[this->tamanho] = _data;
 	tamanho++;
 	return true;
