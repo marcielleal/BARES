@@ -46,7 +46,7 @@ bool Pilha<P>::Full() const
 template <typename P>
 bool Pilha<P>::empty() const
 {
-	return this->tamanho==0;
+	return (this->tamanho==0);
 }
 
 template <typename P>

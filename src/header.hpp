@@ -1,7 +1,14 @@
 #ifndef BIBLIOTECA_HPP
 #define BIBLIOTECA_HPP
 #include <iostream>
- /**
+#define DEF
+#ifndef DEF
+#include <queue>
+#define Fila std::queue
+#include <stack>
+#define Pilha std::stack
+#else
+/**
   * @brief Classe Pilha e seu construtor
   * A função construtora recebe o argumento _MaxSz a fim de definir o tamanho máximo da pilha.
   * Depois testa se a pilha foi criada e inicializa seus elementos.
@@ -84,6 +91,8 @@ class Pilha{
 			return _os;
 		}
 };
+
+
  /**
   * @brief classe fila e seu construtor com o tipo genérico F
   * A função construtora recebe o argumento _MaxSz a fim de definir o tamanho máximo da fila.
@@ -169,14 +178,17 @@ class Fila{
 		std::ostream &operator <<(std::ostream &_os,const Fila &_obj){
 			for(int i=0;i<_obj.tamanho;i++)
 				_os<<_obj.pt_fila[(_obj.inicio+i)%_obj.capacidade]<<",";
+
 			return _os;
 		}
 };
-/** @brief Classe Erro guarda strings que descrevem tipos de erros de uma expressão matemática
- *Considerando os tipos de
- */
+
+
+#endif // DEFs
+
+
 class Erro{
-    std::string str[9]={"Constante numérica inválida: um dos operandos da expressão está fora da faixa permitida. (Coluna: ",
+    std::string str[10]={"Constante numérica inválida: um dos operandos da expressão está fora da faixa permitida. (Coluna: ",
                             "Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: ",
                             "Operando inválido: existe um operando que não é constante numérica. (Coluna: ",
                             "Operador inválido: existe um símbolo correspondente a um operador que não está na lista de operadores válidos. (Coluna: ",
@@ -184,14 +196,17 @@ class Erro{
                             "Fechamento de escopo inválido: existe um parêntese fechando sem haver um parêntese abrindo correspondente. (Coluna: ",
                             "Escopo aberto: existe um parêntese de abertura '(' sem um parêntese de fechamento ')' correspondente. (Coluna: ",
                             "Divisão por zero: Existe uma divisão cujo divisor é zero. (Coluna: ",
-                            "Parênteses desnecessários: Parênteses sem nada em seu interior. (Coluna: "};
+                            "Parênteses desnecessários: Parênteses sem nada em seu interior. (Coluna: ",
+                            "Erro: expressão vazia!!"};
     int erro;
     int col;
     public:
         Erro(int i=1,int col=0);
         inline friend
 		std::ostream &operator <<(std::ostream &_os,const Erro &_oErr){
-			_os<<_oErr.str[_oErr.erro-1]<<_oErr.col<<")";
+			_os<<_oErr.str[_oErr.erro-1];
+			if(_oErr.col>=0)
+                _os<<_oErr.col<<")";
 			return _os;
 		}
 };
@@ -199,13 +214,22 @@ class Simbolo{
 	std::string simb;
 	int coluna;
 	public:
-		Simbolo(std::string simb="",int col=0);
+        bool isUnrMinus;
+		template<typename T>
+		Simbolo(T simb="",int col=0);
+		Simbolo();
+
 		bool isOperand(void) const;
 		bool isOperator(void) const;
 		int prec() const;
 		int getInt() const;		//If osOperand true
 
+        bool isDigit(unsigned int i) const;
+
+        template <typename T>
+        void setSimb(T str);
 		std::string getSimb() const;
+
 		void setCol(int col);
 		int getCol(void) const;
 
@@ -214,9 +238,7 @@ class Simbolo{
 
 		bool aplic(int a,int b,int &res) const;
 
-		template <typename T> Simbolo operator+(T s);
-		template <typename T> Simbolo operator+=(T s);
-		Simbolo operator=(std::string s);
+        void operator=(std::string s);
 		bool operator==(std::string s);
 		bool operator!=(std::string s);
 
@@ -228,9 +250,9 @@ class Simbolo{
 };
 class Expressao{
     std::string exp;//!<exp guardará uma expressão matemática
-    Fila<Simbolo> tokens;//!<Fila que guardará os tokens de exp
-    Fila<Simbolo> fila;//!<Fila que guardará os tokens no formato pós-fixo
-    Fila<Erro> erros;//!<Fila que guardará os erros na formação da expressão contida em exp, caso houver
+    Fila<Simbolo> *tokens;//!<Fila que guardará os tokens de exp
+    Fila<Simbolo> *fila;//!<Fila que guardará os tokens no formato pós-fixo
+    //!<Fila que guardará os erros na formação da expressão contida em exp, caso houver
 
     /**@brief Separa os termos da expressão exp
     *
@@ -246,13 +268,18 @@ class Expressao{
     *
     * @return true a tokenização for bem-sucedida
     */
-    int avalPosFixa(void);
+
 
     public:
+    Fila<Erro> *erros;
+        int avalPosFixa(void);
         void inf2PosFix(void);
-        bool tokeniza(void);
+        bool tokeniza(Fila<Simbolo> &filaAux);
+
+        bool isEmptyExp();
         /**@brief Construtor de Expressao*/
         Expressao(std::string exp="");
+        ~Expressao(){delete this->tokens;delete this->fila;delete this->erros;};
 
         /**@brief Retorna o valor do atributo exp
         * @return atributo exp
@@ -279,13 +306,6 @@ class Expressao{
         * @return true se exp[c] for um dígito e false se não for
         */
         bool isDigit(unsigned int c);
-         /**@brief Avalia se uma substring de exp, que representa um inteiro, está na faixa de -32.767 a 32.767
-         * @param i é o índice inicial da substring
-         * @param f é o índice final da substring+1
-         * @see extSintFromStr
-         * @return true se exp[c] o inteiro da faixa, false se não estiver
-         */
-        bool isValOpd(unsigned int i, unsigned int f);
         /**@brief Avalia se um caractere é um parêntese
         * @param c é um índice qualquer do atributo exp
         * @return true se exp[c] for um parêntese e false se não for
@@ -330,35 +350,45 @@ class Expressao{
          * @return o caractere de exp do índice c
          */
         char getChar(unsigned int c);
-        /**@brief Extrai do atributo exp uma substring
-         * @param num é um objeto do tipo Simbolo que guardará a sequência de dígitos
-         * @param i é o índice de exp que será o índice 0 da substring
-         * @param j é o tamanho da substring
-         * @return a substring do atributo exp com as expecificações citadas
-         */
         std::string subStr(unsigned int i,unsigned int j);
-        /**@brief Extrai do atributo exp uma sequência de dígitos contíguos
-         * @param num é um objeto do tipo Simbolo que guardará a sequência de dígitos
-         * @param inicio é o índice de exp a partir do qual o método procurará mais dígitos contíguos
-         * @see tokeniza
-         * @return o índice do último dígito contíguo ao dígito do índice inicial
-         */
-        int extSintFromStr(Simbolo &num,unsigned int inicio);
-        /**@brief Analisa uma sequência de caracteres '-' numa substring de exp
-         * Mesmo se tivermos uma sequência de caracteres '-' numa expressão, como por exemplo, "1----2", ela continua válida, pois
-         * boa parte desses caracteres '-' são unários. O objetivo dessa função é pegar uma sequência de caracteres '-' e torná-la
-         * menos redundante. É feito retirando o excesso de unários e transformando os em único unário ou retirando-os, já que uma
-         * sequência ímpar de unários é o mesmo que termos um único e uma sequência par é o mesmo que não termos unário algum.
-         * No caso do exemplo, temos 3 '-' unários e um '-' operador, a função percorreria a substring em inicio=2 e guardaria em
-         * num o valor de '-' que será inserido na fila de tokens posteriormente.
-         * Repare que ao percorrer a substring, espaços e tabulações são ignorados.
-         * @param num é um objeto do tipo Simbolo que guardará "" "-"
-         * @param inicio é o índice de exp a partir do qual o método procurará mais caracteres '-'
-         * @see tokeniza
-         * @return o índice do último caractere '-' seguido ao caractere do índice inicial
-         */
-        int extSMinusFromStr(Simbolo &num,unsigned int inicio);
+        void print(){
+            std::cout<<"EXPRESSAO= "<<this->exp<<std::endl;
+            std::cout<<"TOKENS= ";
+            std::cout<<"[";
+            while(!tokens->empty()){
+                std::cout<<tokens->front()<<",";
+                tokens->pop();
+            }std::cout<<"]"<<std::endl;
 
+            std::cout<<"FILA= ";
+            std::cout<<"[";
+            while(!fila->empty()){
+                std::cout<<fila->front()<<",";
+                fila->pop();
+            }std::cout<<"]"<<std::endl;
+
+            std::cout<<"ERROS= ";
+            while(!erros->empty()){
+                std::cout<<erros->front()<<",";
+                erros->pop();
+            }std::cout<<"]"<<std::endl;
+
+        }
+        void clear(){
+            while(!tokens->empty()){
+                tokens->pop();
+            }
+
+            while(!fila->empty()){
+                fila->pop();
+            }
+
+            while(!erros->empty()){
+                erros->pop();
+            }
+
+        }
+/*
         inline friend
         std::ostream &operator <<(std::ostream &_os,const Expressao &_oExp){
 			_os<<"EXPRESSÃO: "<<_oExp.exp<<std::endl;
@@ -366,7 +396,7 @@ class Expressao{
 			_os<<"FILA: "<<_oExp.fila<<std::endl;
 			_os<<"ERROS: "<<_oExp.erros<<std::endl;
             return _os;
-		}
+		}*/
 };
 
 

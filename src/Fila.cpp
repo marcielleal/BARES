@@ -37,7 +37,8 @@ bool Fila<F>::full() const
 template <typename F>
 bool Fila<F>::empty() const
 {
-	if(this->tamanho==0) return true;
+	if(this->tamanho==0)
+        return true;
 	else return false;
 }
 
@@ -45,10 +46,10 @@ template <typename F>
 bool Fila<F>::push(F _data)
 {
 	if(pt_fila==NULL) return false;
-/*	if(this->full())
+	if(this->full())
         if(!this->_duplica())
             return false;
-*/
+
 	if(this->inicio==-1) this->inicio=0;
 	this->fim = (fim+1)%this->capacidade;
 	this->pt_fila[fim] = _data;
@@ -64,8 +65,8 @@ bool Fila<F>::pop()		//remove
     if(this->inicio==this->fim){
         this->inicio=-1;
         this->fim=-1;
-    }
-	this->inicio = (this->inicio+1)%this->capacidade;
+    }else
+        this->inicio = (this->inicio+1)%this->capacidade;
 	this->tamanho--;
 	return true;
 }
@@ -73,7 +74,7 @@ bool Fila<F>::pop()		//remove
 template <typename F>
 F Fila<F>::front() const
 {
-	return this->pt_fila[inicio];
+	return this->pt_fila[this->inicio];
 }
 
 template <typename F>
@@ -99,4 +100,19 @@ bool Fila<F>::_duplica(){
     this->fim=this->tamanho-1;
 	this->capacidade*=2;
 	return true;
+}/*
+int main(){
+    Fila<int> fila;
+    for(int i=0;i<100;i++){
+        fila.push(i);
+        std::cout<<"EMPTY= "<<fila.empty()<<"TAMANHO= "<<fila.size()<<"\n"<<fila<<std::endl;
+    }
+    for(int i=0;i<100;i++){
+        fila.pop();
+        std::cout<<"EMPTY= "<<fila.empty()<<"TAMANHO= "<<fila.size()<<"\n"<<fila<<std::endl;
+    }
+
+    return 0;
 }
+
+*/

@@ -2,13 +2,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "simbolo.cpp"
-#include "expressao.cpp"
-#include "erro.cpp"
 #include "header.hpp"
+//#include "simbolo.cpp"
+#include "expressao_try.cpp"
+//#include "erro.cpp"
 
-#include "Pilha.cpp"
-#include "Fila.cpp"
 
 int main (int argc, char *argv[]){
     std::ostream* pOut;
@@ -41,15 +39,23 @@ int main (int argc, char *argv[]){
 		return 1;
 	}
     Expressao e;
-    int i;
+    Fila<Simbolo> fila;
+
     while(!inputFile.fail()){
 		inputFile.getline(buff, 500);
+
+		e.clear();
 		e.setExp(buff);
+
 		std::cout<<e.getExp()<<std::endl;
-		if(e.exprValue(i))
-            std::cout<<i<<std::endl;
-		else e.getErros();
-        std::cout<<e;
+        if(e.tokeniza(fila)){
+            e.inf2PosFix();
+            int i=e.avalPosFixa();
+            if(e.erros->empty()){
+                std::cout<<i<<std::endl;
+            }else e.print();
+        }else e.print();
+
         std::cout<<"--------------\n";
     }
     std::cout<<"CARALEO\n";

@@ -2,12 +2,38 @@
 #include <cstdlib>
 #include "header.hpp"
 
+#define DEF
 #ifdef DEF
 #include "erro.cpp"
 #include "simbolo.cpp"
+#endif // DEF
+
+#ifdef DEBUG
 #include "Pilha.cpp"
 #include "Fila.cpp"
+#else
+#include <stack>
+#include <queue>
+#define Fila std::queue
+#define Pilha std::stack
 #endif // DEF
+
+template <typename T>
+void imprime(Fila<T> fila){
+    std::cout<<"[";
+    while(!fila.empty()){
+        std::cout<<fila.front()<<",";
+        fila.pop();
+    }std::cout<<"]"<<std::endl;
+}
+template <typename T>
+void imprime(Pilha<T> fila){
+    std::cout<<"[";
+    while(!fila.empty()){
+        std::cout<<fila.top()<<",";
+        fila.pop();
+    }std::cout<<"]"<<std::endl;
+}
 
 void Expressao::setExp(std::string e){
     this->exp=e;
@@ -111,9 +137,9 @@ int Expressao::extSMinusFromStr(Simbolo &num, unsigned inicio){
     return i;
 }
 bool Expressao::tokeniza(void){
-    this->tokens.clear();
-    this->erros.clear();
-    this->fila.clear();
+   // this->tokens.clear();
+    //this->erros.clear();
+    //this->fila.clear();
 
     Pilha<unsigned int> contPar;                            //Pilha controladora de parenteses
     Simbolo token;                                        //Buffer do token
@@ -238,19 +264,19 @@ bool Expressao::tokeniza(void){
         return true;
 
     if(!this->tokens.empty())
-        this->tokens.clear();
+       // this->tokens.clear();
 
     return false;
+
 }
 void Expressao::inf2PosFix(void){
-    this->fila.clear();
-    std::cout<<this->tokens<<std::endl;
+    //fila.clear();
 	Simbolo simb("",0);
 	Pilha<Simbolo> pilhaAux;
-	while(!this->tokens.empty()){
-		simb=this->tokens.front();
-		this->tokens.pop();
 
+	while(!tokens.empty()){
+		simb=tokens.front();
+		tokens.pop();
 		if(simb.isOperand()){                               //Se for operando
 			this->fila.push(simb);
 		}
@@ -269,6 +295,7 @@ void Expressao::inf2PosFix(void){
 			}else{
 				while(!pilhaAux.empty()&&!simb.isOpenPar()){
 					if(pilhaAux.top().prec()<=simb.prec()){
+
 						if(pilhaAux.top().isOpenPar())
 							pilhaAux.pop();
 						else{
@@ -281,11 +308,8 @@ void Expressao::inf2PosFix(void){
 				pilhaAux.push(simb);
 			}
 		}
-		Simbolo a;
-		if(pilhaAux.empty()) a="ABACATE";
-		else a=pilhaAux.top();
-		//std::cout<<"BACK: "<<fila.back()<<" SIM: "<< simb<<" SIZE:"<<fila.size()<<" TOPO: "<<a<<" \n";
-	}while(!pilhaAux.empty()){
+	}
+	while(!pilhaAux.empty()){
 		if(pilhaAux.top().isOpenPar())
 			pilhaAux.pop();
 		else{
@@ -296,9 +320,6 @@ void Expressao::inf2PosFix(void){
 }
 
 int Expressao::avalPosFixa(void){
-	std::cout<<"BACaK:"<<this->fila<<"\n";
-	std::cout<<"BACbK:"<<this->fila<<"\n";
-	std::cout<<this->fila;
 	Simbolo simb("",0);
 	Pilha<int> pilhaOpnd;
 
@@ -315,12 +336,16 @@ int Expressao::avalPosFixa(void){
 			opnd2=pilhaOpnd.top();
 			pilhaOpnd.pop();
 
-            opnd1=pilhaOpnd.top();
-			pilhaOpnd.pop();
-
-			if(!simb.aplic(opnd1,opnd2,resultado)){
-                this->erros.push(Erro(8,simb.getCol()+1));  //getCol irá mostrar a coluna do / na expressão original
-                return 0;
+            if(simb.isUnarMinus){
+                resultado=-1*opnd2;
+            }
+            else{
+                opnd1=pilhaOpnd.top();
+                pilhaOpnd.pop();
+                if(!simb.aplic(opnd1,opnd2,resultado)){
+                    this->erros.push(Erro(8,simb.getCol()+1));  //getCol irá mostrar a coluna do / na expressão original
+                    return 0;
+                }
             }
 			pilhaOpnd.push(resultado);
 		}
@@ -334,7 +359,6 @@ int Expressao::avalPosFixa(void){
 bool Expressao::exprValue(int &res){
     if(this->tokeniza()){
         this->inf2PosFix();
-        std::cout<<"OKOKOKOKO: "<<this->fila<<"\n";
         int i=this->avalPosFixa();
         if(this->erros.empty()){
             res=i;
@@ -343,7 +367,7 @@ bool Expressao::exprValue(int &res){
     }return false;
 }
 void Expressao::getErros(void){
-    std::cout<<this->erros;
+
 }
 
 #ifdef DEF

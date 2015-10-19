@@ -1,40 +1,59 @@
-#include <unistd.h>
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
-#include "header.hpp"
+//#include "header.hpp"
 
-Simbolo Simbolo::operator=(std::string s){
-    return this->simb=s;
+void Simbolo::operator=(std::string s){
+    this->isUnrMinus=false;
+    this->simb=s;
+    return;
 }
 bool Simbolo::operator!=(std::string s){
+    this->isUnrMinus=false;
     return (this->simb!=s);
 }
 bool Simbolo::operator==(std::string s){
     return (this->simb==s);
 }
 template <typename T>
-Simbolo Simbolo::operator+(T s){
-    return this->simb+s;
-}
-template <typename T>
-Simbolo Simbolo::operator+=(T s){
-    return this->simb+=s;
-}
-
-Simbolo::Simbolo(std::string simb,int col){
-	this->simb=simb;
+Simbolo::Simbolo(T sim,int col){
+	this->isUnrMinus=false;
+	this->simb="";
+	this->simb+=sim;
 	this->coluna=col;
 }
-bool Simbolo::isOperand(void) const{
-	bool flag;
-	for(unsigned int i=0;i<this->simb.length();i++)
-		if(!isdigit(this->simb[i]))
-            flag=false;
-        else
-            flag=true;
+Simbolo::Simbolo(){
+	this->isUnrMinus=false;
+	this->simb="";
+	this->coluna=0;
+}
 
-    return flag;
+bool Simbolo::isOperand(void) const{
+	for(unsigned int i=0;i<this->simb.length();i++)
+		if(!this->isDigit(i))
+            return false;
+    int v=atoi(this->simb.c_str());
+    if(v>32767||v<-32767)
+        return false;
+    return true;
+}
+
+bool Simbolo::isDigit(unsigned int i) const{
+    switch(this->simb[i]){
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+            return true;
+        default:
+            return false;
+    }
 }
 bool Simbolo::isOperator(void) const{
 	if(this->simb=="+"||this->simb=="-"||this->simb=="*"||this->simb=="/"||this->simb=="%"||this->simb=="^")
@@ -44,7 +63,15 @@ bool Simbolo::isOperator(void) const{
 void Simbolo::setCol(int col){
     this->coluna=col;
 }
+template <typename T>
+void Simbolo::setSimb(T str){
+    this->simb="";
+    this->simb+=str;
+    return;
+}
 int Simbolo::prec() const{
+    if(this->isUnrMinus)
+        return 1;
 	if(simb.length()==1){
 		switch(simb[0]){
 			case '(': return 5;
@@ -63,12 +90,9 @@ int Simbolo::getCol(void) const{
     return this->coluna;
 }
 int Simbolo::getInt() const{
-	if(isOperand())
+	if(this->isOperand())
 		return atoi(this->simb.c_str());
-	int soma=0;
-	for(unsigned int i=0;i<this->simb.length();i++)
-		soma+=simb[i];
-	return soma;
+	return 0;
 }
 std::string Simbolo::getSimb() const{
 	return this->simb;
