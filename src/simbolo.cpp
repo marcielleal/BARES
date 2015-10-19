@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
-//#include "header.hpp"
+#include "header.hpp"
 
 void Simbolo::operator=(std::string s){
     this->isUnrMinus=false;
