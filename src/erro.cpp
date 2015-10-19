@@ -1,4 +1,4 @@
-//#include "header.hpp"
+#include "header.hpp"
 
 Erro::Erro(int i,int col){
     this->erro=i;
