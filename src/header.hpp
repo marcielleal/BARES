@@ -351,43 +351,8 @@ class Expressao{
          */
         char getChar(unsigned int c);
         std::string subStr(unsigned int i,unsigned int j);
-        void print(){
-            std::cout<<"EXPRESSAO= "<<this->exp<<std::endl;
-            std::cout<<"TOKENS= ";
-            std::cout<<"[";
-            while(!tokens->empty()){
-                std::cout<<tokens->front()<<",";
-                tokens->pop();
-            }std::cout<<"]"<<std::endl;
-
-            std::cout<<"FILA= ";
-            std::cout<<"[";
-            while(!fila->empty()){
-                std::cout<<fila->front()<<",";
-                fila->pop();
-            }std::cout<<"]"<<std::endl;
-
-            std::cout<<"ERROS= ";
-            while(!erros->empty()){
-                std::cout<<erros->front()<<",";
-                erros->pop();
-            }std::cout<<"]"<<std::endl;
-
-        }
-        void clear(){
-            while(!tokens->empty()){
-                tokens->pop();
-            }
-
-            while(!fila->empty()){
-                fila->pop();
-            }
-
-            while(!erros->empty()){
-                erros->pop();
-            }
-
-        }
+        void print();
+        void clear();
 /*
         inline friend
         std::ostream &operator <<(std::ostream &_os,const Expressao &_oExp){
