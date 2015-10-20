@@ -1,12 +1,29 @@
+/**
+ * @mainpage bares
+ *
+ * @section sec_intro Introdução
+ *
+ * Projeto solicitado pelo professor Sela Rodrigues dos Santos
+ *
+ * @section sec_install Compilação e Instalação
+ *
+ * Informações sobre compilação e instalação do programa, dependências,
+ * links para o SVN, wiki, etc.
+ *
+ * @section sec_summary Resumo
+ *
+ * @author Marciel Manoel Leal e Edye Lautter Cunha de Oliveira
+ * @date Tue Oct 20 14:03:50 BRT 2015
+ */
+
 #include <istream>
 #include <iostream>
 #include <fstream>
 #include <string>
 #include "header.hpp"
 //#include "simbolo.cpp"
-#include "expressao_try.cpp"
+#include "expressao.cpp"
 //#include "erro.cpp"
-
 
 int main (int argc, char *argv[]){
     std::ostream* pOut;
@@ -44,21 +61,14 @@ int main (int argc, char *argv[]){
     while(!inputFile.fail()){
 		inputFile.getline(buff, 500);
 
-		e.clear();
 		e.setExp(buff);
 
-		std::cout<<e.getExp()<<std::endl;
-        if(e.tokeniza(fila)){
-            e.inf2PosFix();
-            int i=e.avalPosFixa();
-            if(e.erros->empty()){
-                std::cout<<i<<std::endl;
-            }else e.print();
-        }else e.print();
-
-        std::cout<<"--------------\n";
+		*pOut<<e.getExp()<<std::endl;
+        int i;
+        if(e.exprValue(i)){
+                *pOut<<i<<std::endl;
+        }else e.printErros(pOut);
     }
-    std::cout<<"CARALEO\n";
 
 	inputFile.close();
 
