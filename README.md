@@ -35,7 +35,7 @@ Dentro da pasta do projeto:
 * Erro: expressão vazia!!
 
 ###Disponível em: 
-github.com/marcielleal/BARES
+https://github.com/marcielleal/BARES
 
 ###Agradecimentos
 * Ao professor Selan por prorrogar o prazo da entrega do projeto
