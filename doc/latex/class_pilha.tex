@@ -1,0 +1,206 @@
+\hypertarget{class_pilha}{\section{Referência à classe Template Pilha$<$ P $>$}
+\label{class_pilha}\index{Pilha$<$ P $>$@{Pilha$<$ P $>$}}
+}
+
+
+Classe \hyperlink{class_pilha}{Pilha} e seu construtor A função construtora recebe o argumento \-\_\-\-Max\-Sz a fim de definir o tamanho máximo da pilha. Depois testa se a pilha foi criada e inicializa seus elementos.  
+
+
+
+
+{\ttfamily \#include $<$header.\-hpp$>$}
+
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_pilha_a433b65de2c6f25af62ab51d42b3b92dc}{Pilha} (int \-\_\-\-Max\-Sz=50)
+\begin{DoxyCompactList}\small\item\em Contrutor da classe \hyperlink{class_pilha}{Pilha}. \end{DoxyCompactList}\item 
+\hypertarget{class_pilha_acc8583fc419e87f63e6e7a002b8606d4}{\hyperlink{class_pilha_acc8583fc419e87f63e6e7a002b8606d4}{$\sim$\-Pilha} (void)}\label{class_pilha_acc8583fc419e87f63e6e7a002b8606d4}
+
+\begin{DoxyCompactList}\small\item\em Destructor da pilha. Destrói a pilha. \end{DoxyCompactList}\item 
+bool \hyperlink{class_pilha_ac173c7a487eb5f86c64420f349dba129}{pop} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pilha_ac173c7a487eb5f86c64420f349dba129}{pop()} remove o último elemento da pilha somente decrementando seu tamanho \end{DoxyCompactList}\item 
+bool \hyperlink{class_pilha_a8df80c74ffbfaa8358818d7604c45586}{push} (P \-\_\-data)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pilha_a8df80c74ffbfaa8358818d7604c45586}{push(\-P \-\_\-data)} insere o elemento \-\_\-data do tipo P na pilha \end{DoxyCompactList}\item 
+P \hyperlink{class_pilha_a9e8729b417d0c303a06d8efa0cc7f8b5}{top} ()
+\item 
+\hypertarget{class_pilha_a0be3922eb0539ff4d010c1b41e196f80}{int \hyperlink{class_pilha_a0be3922eb0539ff4d010c1b41e196f80}{size} () const }\label{class_pilha_a0be3922eb0539ff4d010c1b41e196f80}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pilha_a0be3922eb0539ff4d010c1b41e196f80}{size()} retorna o tamanho atual da pilha caso não seja inválida \end{DoxyCompactList}\item 
+bool \hyperlink{class_pilha_a2ecae3a17ec78595e03939204d130299}{Full} () const 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pilha_a2ecae3a17ec78595e03939204d130299}{Full()} retorna true se o tamanho do vetor tiver alcançado o tamanho máximo. \end{DoxyCompactList}\item 
+bool \hyperlink{class_pilha_aeeca565b873e7e92f2634efe7205ea8c}{empty} () const 
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pilha_aeeca565b873e7e92f2634efe7205ea8c}{empty()} retorna true se a pilha estiver vazia \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membros protegidos}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_pilha_a8a46d91706060300be9b7b9718c9d867}{\-\_\-duplica} (void)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_pilha_a8a46d91706060300be9b7b9718c9d867}{\-\_\-duplica()} Duplica a pilha caso tenha alcançado a capacidade máxima \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_pilha_a352bfedefc897a200334188781ed0baa}{P $\ast$ \hyperlink{class_pilha_a352bfedefc897a200334188781ed0baa}{pt\-\_\-\-Pilha}}\label{class_pilha_a352bfedefc897a200334188781ed0baa}
+
+\begin{DoxyCompactList}\small\item\em Um ponteiro para o início da memórial sequêncial do tipo P alocada para a pilha. \end{DoxyCompactList}\item 
+\hypertarget{class_pilha_a6a54f2a75f0ef3eaa57cd04f21df2992}{int \hyperlink{class_pilha_a6a54f2a75f0ef3eaa57cd04f21df2992}{tamanho}}\label{class_pilha_a6a54f2a75f0ef3eaa57cd04f21df2992}
+
+\begin{DoxyCompactList}\small\item\em Quantidade de elementos na pilha. \end{DoxyCompactList}\item 
+\hypertarget{class_pilha_a35f227f2a669f37692c7114cc3766b62}{int \hyperlink{class_pilha_a35f227f2a669f37692c7114cc3766b62}{capacidade}}\label{class_pilha_a35f227f2a669f37692c7114cc3766b62}
+
+\begin{DoxyCompactList}\small\item\em Tamanho do do espaço de memória alocado para a pilha. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amigos}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_pilha_a8d3b7befae3f938343e0485de88f9b07}{std\-::ostream \& \hyperlink{class_pilha_a8d3b7befae3f938343e0485de88f9b07}{operator$<$$<$} (std\-::ostream \&\-\_\-os, const \hyperlink{class_pilha}{Pilha} \&\-\_\-obj)}\label{class_pilha_a8d3b7befae3f938343e0485de88f9b07}
+
+\begin{DoxyCompactList}\small\item\em Operator $<$$<$ da classe \hyperlink{class_pilha}{Pilha}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+\subsubsection*{template$<$typename P$>$class Pilha$<$ P $>$}
+
+Classe \hyperlink{class_pilha}{Pilha} e seu construtor A função construtora recebe o argumento \-\_\-\-Max\-Sz a fim de definir o tamanho máximo da pilha. Depois testa se a pilha foi criada e inicializa seus elementos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \-\_\-\-Max\-Sz} & tamanho maximo da pilha \\
+\hline
+{\em pt\-\_\-fila} & ponteiro para a pilha \\
+\hline
+{\em tamanho} & tamanho da pilha, é incrementado ou decrementado de acordo com as ações. \\
+\hline
+{\em capacidade} & capacidade máxima da pilha \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentação dos Construtores \& Destrutor}
+\hypertarget{class_pilha_a433b65de2c6f25af62ab51d42b3b92dc}{\index{Pilha@{Pilha}!Pilha@{Pilha}}
+\index{Pilha@{Pilha}!Pilha@{Pilha}}
+\subsubsection[{Pilha}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P $>$ {\bf Pilha}$<$ P $>$\-::{\bf Pilha} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-\_\-\-Max\-Sz = {\ttfamily 50}}
+\end{DoxyParamCaption}
+)}}\label{class_pilha_a433b65de2c6f25af62ab51d42b3b92dc}
+
+
+Contrutor da classe \hyperlink{class_pilha}{Pilha}. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \-\_\-\-Max\-Sz} & será o valor do atributo capacidade dessa classe \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentação dos métodos}
+\hypertarget{class_pilha_a8a46d91706060300be9b7b9718c9d867}{\index{Pilha@{Pilha}!\-\_\-duplica@{\-\_\-duplica}}
+\index{\-\_\-duplica@{\-\_\-duplica}!Pilha@{Pilha}}
+\subsubsection[{\-\_\-duplica}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P $>$ bool {\bf Pilha}$<$ P $>$\-::\-\_\-duplica (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_pilha_a8a46d91706060300be9b7b9718c9d867}
+
+
+\hyperlink{class_pilha_a8a46d91706060300be9b7b9718c9d867}{\-\_\-duplica()} Duplica a pilha caso tenha alcançado a capacidade máxima 
+
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_pilha_a352bfedefc897a200334188781ed0baa}{pt\-\_\-\-Pilha} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Retorna}
+true or false 
+\end{DoxyReturn}
+\hypertarget{class_pilha_aeeca565b873e7e92f2634efe7205ea8c}{\index{Pilha@{Pilha}!empty@{empty}}
+\index{empty@{empty}!Pilha@{Pilha}}
+\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P $>$ bool {\bf Pilha}$<$ P $>$\-::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_pilha_aeeca565b873e7e92f2634efe7205ea8c}
+
+
+\hyperlink{class_pilha_aeeca565b873e7e92f2634efe7205ea8c}{empty()} retorna true se a pilha estiver vazia 
+
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_pilha_a6a54f2a75f0ef3eaa57cd04f21df2992}{tamanho} 
+\end{DoxySeeAlso}
+\hypertarget{class_pilha_a2ecae3a17ec78595e03939204d130299}{\index{Pilha@{Pilha}!Full@{Full}}
+\index{Full@{Full}!Pilha@{Pilha}}
+\subsubsection[{Full}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P $>$ bool {\bf Pilha}$<$ P $>$\-::Full (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_pilha_a2ecae3a17ec78595e03939204d130299}
+
+
+\hyperlink{class_pilha_a2ecae3a17ec78595e03939204d130299}{Full()} retorna true se o tamanho do vetor tiver alcançado o tamanho máximo. 
+
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_pilha_a6a54f2a75f0ef3eaa57cd04f21df2992}{tamanho} 
+
+\-\_\-\-Max\-Sz 
+\end{DoxySeeAlso}
+\hypertarget{class_pilha_ac173c7a487eb5f86c64420f349dba129}{\index{Pilha@{Pilha}!pop@{pop}}
+\index{pop@{pop}!Pilha@{Pilha}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P $>$ bool {\bf Pilha}$<$ P $>$\-::pop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_pilha_ac173c7a487eb5f86c64420f349dba129}
+
+
+\hyperlink{class_pilha_ac173c7a487eb5f86c64420f349dba129}{pop()} remove o último elemento da pilha somente decrementando seu tamanho 
+
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_pilha_a352bfedefc897a200334188781ed0baa}{pt\-\_\-\-Pilha} 
+
+\hyperlink{class_pilha_aeeca565b873e7e92f2634efe7205ea8c}{empty()} 
+
+\hyperlink{class_pilha_a6a54f2a75f0ef3eaa57cd04f21df2992}{tamanho} 
+\end{DoxySeeAlso}
+\hypertarget{class_pilha_a8df80c74ffbfaa8358818d7604c45586}{\index{Pilha@{Pilha}!push@{push}}
+\index{push@{push}!Pilha@{Pilha}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P $>$ bool {\bf Pilha}$<$ P $>$\-::push (
+\begin{DoxyParamCaption}
+\item[{P}]{\-\_\-data}
+\end{DoxyParamCaption}
+)}}\label{class_pilha_a8df80c74ffbfaa8358818d7604c45586}
+
+
+\hyperlink{class_pilha_a8df80c74ffbfaa8358818d7604c45586}{push(\-P \-\_\-data)} insere o elemento \-\_\-data do tipo P na pilha 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \-\_\-data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_pilha_a352bfedefc897a200334188781ed0baa}{pt\-\_\-\-Pilha} 
+
+\hyperlink{class_pilha_a6a54f2a75f0ef3eaa57cd04f21df2992}{tamanho} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Retorna}
+true or false 
+\end{DoxyReturn}
+\hypertarget{class_pilha_a9e8729b417d0c303a06d8efa0cc7f8b5}{\index{Pilha@{Pilha}!top@{top}}
+\index{top@{top}!Pilha@{Pilha}}
+\subsubsection[{top}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename P $>$ P {\bf Pilha}$<$ P $>$\-::top (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_pilha_a9e8729b417d0c303a06d8efa0cc7f8b5}
+\hyperlink{class_pilha_a9e8729b417d0c303a06d8efa0cc7f8b5}{top()} retorna o último elemento da pilha (tamanho-\/1) \begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_pilha_a352bfedefc897a200334188781ed0baa}{pt\-\_\-\-Pilha} 
+
+\hyperlink{class_pilha_a6a54f2a75f0ef3eaa57cd04f21df2992}{tamanho} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Retorna}
+pt\-\_\-\-Pilha\mbox{[}tamanho-\/1\mbox{]} 
+\end{DoxyReturn}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{header_8hpp}{header.\-hpp}\item 
+src/\hyperlink{_pilha_8cpp}{Pilha.\-cpp}\end{DoxyCompactItemize}

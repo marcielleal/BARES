@@ -1,0 +1,250 @@
+\hypertarget{class_fila}{\section{Referência à classe Template Fila$<$ F $>$}
+\label{class_fila}\index{Fila$<$ F $>$@{Fila$<$ F $>$}}
+}
+
+
+\hyperlink{class_fila}{Fila} e seu construtor com o tipo genérico F A função construtora recebe o argumento \-\_\-\-Max\-Sz a fim de definir o tamanho máximo da fila. Depois testa se a fila foi criada e inicializa seus elementos.  
+
+
+
+
+{\ttfamily \#include $<$header.\-hpp$>$}
+
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_fila_a11bc5b99c65f357b02dae4251709972a}{Fila} (int \-\_\-\-Max\-Sz=50)
+\begin{DoxyCompactList}\small\item\em Construtor de \hyperlink{class_fila}{Fila}. \end{DoxyCompactList}\item 
+\hyperlink{class_fila_a0697238583644bd3b18c8c6517210cab}{$\sim$\-Fila} (void)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_fila_a0697238583644bd3b18c8c6517210cab}{$\sim$\-Fila()} Destructor da fila. \end{DoxyCompactList}\item 
+F \hyperlink{class_fila_af323c8cedb04bb0e53e0edf826d9fde8}{front} () const 
+\item 
+F \hyperlink{class_fila_a80a0eaaec0f54359e2f11eb1637d6031}{back} () const 
+\item 
+bool \hyperlink{class_fila_a27d8db9bcef9588464aba53a13a785f3}{pop} ()
+\begin{DoxyCompactList}\small\item\em \char`\"{}pop\char`\"{} tem por objetivo remover um elemento da fila. \end{DoxyCompactList}\item 
+bool \hyperlink{class_fila_a7ebd20b2959bab8c06c9955c9a3b6d54}{push} (F \-\_\-data)
+\begin{DoxyCompactList}\small\item\em Push tem por objetivo inserir um elemento na fila. \end{DoxyCompactList}\item 
+bool \hyperlink{class_fila_ae984739241b16a0118085ba0cc5651a3}{full} () const 
+\item 
+bool \hyperlink{class_fila_a66006c07dca654037c25d02b988c4f26}{empty} () const 
+\item 
+int \hyperlink{class_fila_a0ff47e7857a324066e9d6457082d8c5b}{size} () const 
+\end{DoxyCompactItemize}
+\subsection*{Membros protegidos}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_fila_a2b9eb625b7d2b80cf497811ae9e116e9}{\-\_\-duplica} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_fila_a2b9eb625b7d2b80cf497811ae9e116e9}{\-\_\-duplica()} Duplica a fila caso tenha alcançado a capacidade máxima \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_fila_a5907956bc6b1d377a9e70348ad905811}{F $\ast$ \hyperlink{class_fila_a5907956bc6b1d377a9e70348ad905811}{pt\-\_\-fila}}\label{class_fila_a5907956bc6b1d377a9e70348ad905811}
+
+\begin{DoxyCompactList}\small\item\em Um ponteiro para o início da memórial sequêncial do tipo F alocada para a fila. \end{DoxyCompactList}\item 
+\hypertarget{class_fila_a8a01a193f0007722c9b68796ee31c30a}{int \hyperlink{class_fila_a8a01a193f0007722c9b68796ee31c30a}{inicio}}\label{class_fila_a8a01a193f0007722c9b68796ee31c30a}
+
+\begin{DoxyCompactList}\small\item\em Índice que guardará onde a fila começa em relação à memória alocada. \end{DoxyCompactList}\item 
+\hypertarget{class_fila_ab4c63a5594ee43c3ff0d22c330c8afd5}{int \hyperlink{class_fila_ab4c63a5594ee43c3ff0d22c330c8afd5}{fim}}\label{class_fila_ab4c63a5594ee43c3ff0d22c330c8afd5}
+
+\begin{DoxyCompactList}\small\item\em Índice que guardará onde a fila termina em relação à memória alocada. \end{DoxyCompactList}\item 
+\hypertarget{class_fila_ad92255694596a067e7a9672f5c4a1eb5}{int \hyperlink{class_fila_ad92255694596a067e7a9672f5c4a1eb5}{tamanho}}\label{class_fila_ad92255694596a067e7a9672f5c4a1eb5}
+
+\begin{DoxyCompactList}\small\item\em Tamanho do do espaço de memória alocado para a filha. \end{DoxyCompactList}\item 
+\hypertarget{class_fila_aa86f96abdd35390e3eaf3b80cc940edb}{int \hyperlink{class_fila_aa86f96abdd35390e3eaf3b80cc940edb}{capacidade}}\label{class_fila_aa86f96abdd35390e3eaf3b80cc940edb}
+
+\begin{DoxyCompactList}\small\item\em Quantidade de elementos armazenados na fila. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amigos}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{class_fila_a6ab76352677a2f692544da359905e070}{operator$<$$<$} (std\-::ostream \&\-\_\-os, const \hyperlink{class_fila}{Fila} \&\-\_\-obj)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+\subsubsection*{template$<$typename F$>$class Fila$<$ F $>$}
+
+\hyperlink{class_fila}{Fila} e seu construtor com o tipo genérico F A função construtora recebe o argumento \-\_\-\-Max\-Sz a fim de definir o tamanho máximo da fila. Depois testa se a fila foi criada e inicializa seus elementos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \-\_\-\-Max\-Sz} & tamanho maximo da fila \\
+\hline
+{\em pt\-\_\-fila} & ponteiro para a fila \\
+\hline
+{\em tamanho} & tamanho da fila, é incrementado ou decrementado de acordo com as ações. \\
+\hline
+{\em inicio} & o primeiro elemento da fila \\
+\hline
+{\em fim} & o último elemento da fila. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentação dos Construtores \& Destrutor}
+\hypertarget{class_fila_a11bc5b99c65f357b02dae4251709972a}{\index{Fila@{Fila}!Fila@{Fila}}
+\index{Fila@{Fila}!Fila@{Fila}}
+\subsubsection[{Fila}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F $>$ {\bf Fila}$<$ F $>$\-::{\bf Fila} (
+\begin{DoxyParamCaption}
+\item[{int}]{\-\_\-\-Max\-Sz = {\ttfamily 50}}
+\end{DoxyParamCaption}
+)}}\label{class_fila_a11bc5b99c65f357b02dae4251709972a}
+
+
+Construtor de \hyperlink{class_fila}{Fila}. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \-\_\-\-Max\-Sz} & Será o atributo capacidade dessa classe \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_fila_a0697238583644bd3b18c8c6517210cab}{\index{Fila@{Fila}!$\sim$\-Fila@{$\sim$\-Fila}}
+\index{$\sim$\-Fila@{$\sim$\-Fila}!Fila@{Fila}}
+\subsubsection[{$\sim$\-Fila}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F $>$ {\bf Fila}$<$ F $>$\-::$\sim${\bf Fila} (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_fila_a0697238583644bd3b18c8c6517210cab}
+
+
+\hyperlink{class_fila_a0697238583644bd3b18c8c6517210cab}{$\sim$\-Fila()} Destructor da fila. 
+
+Destrói a fila. 
+
+\subsection{Documentação dos métodos}
+\hypertarget{class_fila_a2b9eb625b7d2b80cf497811ae9e116e9}{\index{Fila@{Fila}!\-\_\-duplica@{\-\_\-duplica}}
+\index{\-\_\-duplica@{\-\_\-duplica}!Fila@{Fila}}
+\subsubsection[{\-\_\-duplica}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F $>$ bool {\bf Fila}$<$ F $>$\-::\-\_\-duplica (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_fila_a2b9eb625b7d2b80cf497811ae9e116e9}
+
+
+\hyperlink{class_fila_a2b9eb625b7d2b80cf497811ae9e116e9}{\-\_\-duplica()} Duplica a fila caso tenha alcançado a capacidade máxima 
+
+\begin{DoxyReturn}{Retorna}
+true se a duplicação for bem sucedida, false se não 
+\end{DoxyReturn}
+\hypertarget{class_fila_a80a0eaaec0f54359e2f11eb1637d6031}{\index{Fila@{Fila}!back@{back}}
+\index{back@{back}!Fila@{Fila}}
+\subsubsection[{back}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F $>$ F {\bf Fila}$<$ F $>$\-::back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_fila_a80a0eaaec0f54359e2f11eb1637d6031}
+back retorna o último elemento da fila. \begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_fila_a5907956bc6b1d377a9e70348ad905811}{pt\-\_\-fila} 
+
+\hyperlink{class_fila_ab4c63a5594ee43c3ff0d22c330c8afd5}{fim} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Retorna}
+pt\-\_\-fila\mbox{[}fim\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{class_fila_a66006c07dca654037c25d02b988c4f26}{\index{Fila@{Fila}!empty@{empty}}
+\index{empty@{empty}!Fila@{Fila}}
+\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F $>$ bool {\bf Fila}$<$ F $>$\-::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_fila_a66006c07dca654037c25d02b988c4f26}
+\hyperlink{class_fila_a66006c07dca654037c25d02b988c4f26}{empty()} retorna true se fila estiver vazia. \begin{DoxyReturn}{Retorna}
+true or false 
+\end{DoxyReturn}
+\hypertarget{class_fila_af323c8cedb04bb0e53e0edf826d9fde8}{\index{Fila@{Fila}!front@{front}}
+\index{front@{front}!Fila@{Fila}}
+\subsubsection[{front}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F $>$ F {\bf Fila}$<$ F $>$\-::front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_fila_af323c8cedb04bb0e53e0edf826d9fde8}
+front retorna o primeiro elemento da fila. \begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_fila_a5907956bc6b1d377a9e70348ad905811}{pt\-\_\-fila} 
+
+\hyperlink{class_fila_a8a01a193f0007722c9b68796ee31c30a}{inicio} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Retorna}
+pt\-\_\-fila\mbox{[}inicio\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{class_fila_ae984739241b16a0118085ba0cc5651a3}{\index{Fila@{Fila}!full@{full}}
+\index{full@{full}!Fila@{Fila}}
+\subsubsection[{full}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F $>$ bool {\bf Fila}$<$ F $>$\-::full (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_fila_ae984739241b16a0118085ba0cc5651a3}
+A função full retorna verdadeiro se a fila estiver cheia e falso caso não. \begin{DoxyReturn}{Retorna}
+true or false 
+\end{DoxyReturn}
+\hypertarget{class_fila_a27d8db9bcef9588464aba53a13a785f3}{\index{Fila@{Fila}!pop@{pop}}
+\index{pop@{pop}!Fila@{Fila}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F $>$ bool {\bf Fila}$<$ F $>$\-::pop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_fila_a27d8db9bcef9588464aba53a13a785f3}
+
+
+\char`\"{}pop\char`\"{} tem por objetivo remover um elemento da fila. 
+
+Primeiro a função avalia se a fila foi criada/é válida para então remover o primeiro elemento da fila e decrementar o tamanho. Retorna true caso dê certo. \begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_fila_a5907956bc6b1d377a9e70348ad905811}{pt\-\_\-fila} 
+
+\hyperlink{class_fila_a66006c07dca654037c25d02b988c4f26}{empty()} 
+
+\hyperlink{class_fila_a8a01a193f0007722c9b68796ee31c30a}{inicio} 
+
+\hyperlink{class_fila_ad92255694596a067e7a9672f5c4a1eb5}{tamanho} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Retorna}
+true or false 
+\end{DoxyReturn}
+\hypertarget{class_fila_a7ebd20b2959bab8c06c9955c9a3b6d54}{\index{Fila@{Fila}!push@{push}}
+\index{push@{push}!Fila@{Fila}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ bool {\bf Fila}$<$ F $>$\-::push (
+\begin{DoxyParamCaption}
+\item[{F}]{\-\_\-data}
+\end{DoxyParamCaption}
+)}}\label{class_fila_a7ebd20b2959bab8c06c9955c9a3b6d54}
+
+
+Push tem por objetivo inserir um elemento na fila. 
+
+\char`\"{}push\char`\"{} recebe um argumento \-\_\-data e, caso a fila seja válida e não estiver cheia, testa se está vazia para então inserir o elemento e incrementar o tamanho da fila. \begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_fila_a5907956bc6b1d377a9e70348ad905811}{pt\-\_\-fila} ponteiro para o primeiro elemento da fila 
+
+\hyperlink{class_fila_ae984739241b16a0118085ba0cc5651a3}{full()} 
+
+\hyperlink{class_fila_a8a01a193f0007722c9b68796ee31c30a}{inicio} 
+
+\hyperlink{class_fila_ab4c63a5594ee43c3ff0d22c330c8afd5}{fim} 
+
+\hyperlink{class_fila_ad92255694596a067e7a9672f5c4a1eb5}{tamanho} 
+\end{DoxySeeAlso}
+\hypertarget{class_fila_a0ff47e7857a324066e9d6457082d8c5b}{\index{Fila@{Fila}!size@{size}}
+\index{size@{size}!Fila@{Fila}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F $>$ int {\bf Fila}$<$ F $>$\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_fila_a0ff47e7857a324066e9d6457082d8c5b}
+A função size retorna o tamanho da fila. \begin{DoxyReturn}{Retorna}
+this-\/$>$tamanho 
+\end{DoxyReturn}
+
+
+\subsection{Documentação das classes amigas e funções relacionadas}
+\hypertarget{class_fila_a6ab76352677a2f692544da359905e070}{\index{Fila@{Fila}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Fila@{Fila}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename F$>$ std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{\-\_\-os, }
+\item[{const {\bf Fila}$<$ F $>$ \&}]{\-\_\-obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_fila_a6ab76352677a2f692544da359905e070}
+sobrecarga do operador $<$$<$ 
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{header_8hpp}{header.\-hpp}\item 
+src/\hyperlink{_fila_8cpp}{Fila.\-cpp}\end{DoxyCompactItemize}

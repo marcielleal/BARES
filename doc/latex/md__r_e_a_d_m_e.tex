@@ -1,0 +1,45 @@
+Avaliador de expressões aritméticas simples
+
+\subsubsection*{Descrição}
+
+Realiza a análise de expressões aritméticas contidas em um arquivo de texto, tal que, cada expressão está em uma linha diferente. Se forem expressões válidas, o programa calcula seus valores e envia para um arquivo de saída ou para a saída padrão. Se não forem expressões válidas, envia uma lista de erros para um arquivo de saída ou para a saída padrão(cada erro está em uma linha diferente).
+
+Nota\-: expressões válidas para o projeto, são todas as que não envolvam nada além de números inteiros (entre -\/32767 e 32767), operadores binários ('+', '-\/', '$\ast$', '/', '', '$^\wedge$'), menos unário('-\/') e parênteses e que estejam sintaticamente corretas.
+
+\subsubsection*{Autores\-:}
+
+
+\begin{DoxyItemize}
+\item Edye Lautter Cunha Oliveira -\/ \href{mailto:abcdedye@gmail.com}{\tt abcdedye@gmail.\-com}
+\item Marciel Manoel Leal -\/ \href{mailto:marcielmanoel15@gmail.com}{\tt marcielmanoel15@gmail.\-com}
+\end{DoxyItemize}
+
+\subsubsection*{Compilação}
+
+Dentro da pasta B\-A\-R\-E\-S\-: make clean make
+
+\subsubsection*{Execução}
+
+Dentro da pasta B\-A\-R\-E\-S\-: ./bin/bares arquivo\-\_\-de\-\_\-entrada \mbox{[}arquivo\-\_\-de\-\_\-saida\mbox{]}
+
+\subsubsection*{Lista de erros que o programa trata}
+
+\subparagraph*{(Coluna x) indica a coluna na qual se encontra o erro}
+
+
+\begin{DoxyItemize}
+\item Constante numérica inválida\-: um dos operandos da expressão está fora da faixa permitida. (Coluna x)
+\item Falta operando\-: em alguma parte da expressão está faltando um operando . (Coluna\-: x)
+\item Operando inválido\-: existe um operando que não é constante numérica. (Coluna\-: x)
+\item Operador inválido\-: existe um símbolo correspondente a um operador que não está na lista de operadores válidos. (Coluna\-: x)
+\item Falta operador\-: em alguma parte da expressão está faltando um operador. (Coluna\-: x)
+\item Fechamento de escopo inválido\-: existe um parêntese fechando sem haver um parêntese abrindo correspondente. (Coluna\-: x)
+\item Escopo aberto\-: existe um parêntese de abertura '(' sem um parêntese de fechamento ')' correspondente. (Coluna\-: x)
+\item Divisão por zero\-: Existe uma divisão cujo divisor é zero. (Coluna\-: x)
+\item Parênteses desnecessários\-: Parênteses sem nada em seu interior. (Coluna\-: x)
+\item \hyperlink{class_erro}{Erro}\-: expressão vazia!!
+\end{DoxyItemize}
+
+\subsubsection*{Disponível em\-:}
+
+\href{https://github.com/marcielleal/BARES}{\tt https\-://github.\-com/marcielleal/\-B\-A\-R\-E\-S} 

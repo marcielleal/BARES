@@ -1,0 +1,426 @@
+\hypertarget{class_expressao}{\section{Referência à classe Expressao}
+\label{class_expressao}\index{Expressao@{Expressao}}
+}
+
+
+Armazena a expressão matemárica e os intermediários de sua avaliação e cálculo, assim como faz as tarefas de analisar e calcular a expressão.  
+
+
+
+
+{\ttfamily \#include $<$header.\-hpp$>$}
+
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_expressao_a2f9ed2017ca70735ffb389bcdbb5c897}{Expressao} (std\-::string \hyperlink{class_expressao_a2a9e296041b11983d15c8cd52849cd9b}{exp}=\char`\"{}\char`\"{})
+\begin{DoxyCompactList}\small\item\em Construtor de \hyperlink{class_expressao}{Expressao}. \end{DoxyCompactList}\item 
+\hypertarget{class_expressao_a24d1d65d24e920db4eca6f2e0b51a9c7}{\hyperlink{class_expressao_a24d1d65d24e920db4eca6f2e0b51a9c7}{$\sim$\-Expressao} ()}\label{class_expressao_a24d1d65d24e920db4eca6f2e0b51a9c7}
+
+\begin{DoxyCompactList}\small\item\em Destrutor de \hyperlink{class_expressao}{Expressao}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expressao_a4fc26c444cd7db30036a7e23f0d1c61b}{expr\-Value} (int \&res)
+\begin{DoxyCompactList}\small\item\em Calcula o resultado da expressão. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{class_expressao_ab3fd4ae47efcf6c17b245e8387f0260c}{get\-Exp} (void)
+\begin{DoxyCompactList}\small\item\em Retorna o valor do atributo exp. \end{DoxyCompactList}\item 
+void \hyperlink{class_expressao_a31767733140b94bc842fdde4b5e26ea9}{set\-Exp} (std\-::string e)
+\begin{DoxyCompactList}\small\item\em Modifica o atributo exp. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expressao_a355f8c921fd7246530eb87d1a841d17e}{is\-Empty\-Exp} ()
+\begin{DoxyCompactList}\small\item\em Verifica se a expressão contém algum caractere além de espaços e tabulações. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expressao_adad3bc63c44d2def1d31e34d0e7e8d96}{is\-Digit} (unsigned int c)
+\begin{DoxyCompactList}\small\item\em Avalia se um caractere é um dígito. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expressao_adf12d6d7571fe77d2741b494b9f5e84c}{is\-Parnt} (unsigned int c)
+\begin{DoxyCompactList}\small\item\em Avalia se um caractere é um parêntese. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expressao_a9f9e7084b531dc4885a783949d64cfa5}{is\-Val\-Opt} (unsigned int c)
+\begin{DoxyCompactList}\small\item\em Avalia se um caractere é um operador válido. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expressao_afb4109a0b03df89822e8ddd1adf23c5d}{isn\-Val\-Opt} (unsigned int c)
+\begin{DoxyCompactList}\small\item\em Avalia se um caractere é um operador não válido. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expressao_ab3e99e5db4b2e7df65aff71895311359}{is\-Ign\-Char} (unsigned int c)
+\begin{DoxyCompactList}\small\item\em Avalia se um caractere é ignorável. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expressao_a52c96971124d33b8b4268e6da14e8ca8}{is\-Val\-Char} (unsigned int c)
+\begin{DoxyCompactList}\small\item\em Avalia se um caractere válido para o programa. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expressao_acf8915b3ca14cd0fc45bc57827486496}{is\-Not\-Minus} (unsigned int c)
+\begin{DoxyCompactList}\small\item\em Avalia se um caractere não é igual a '-\/'. \end{DoxyCompactList}\item 
+char \hyperlink{class_expressao_a587f25fab7f90ac3d3057065a2f2ea09}{get\-Char} (unsigned int c)
+\begin{DoxyCompactList}\small\item\em Extrai um caractere do atributo exp. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{class_expressao_abdbb9a483991e82e37f794c3dc0b647a}{sub\-Str} (unsigned int i, unsigned int j)
+\begin{DoxyCompactList}\small\item\em Método que retorna uma substring de exp baseado em dois índices. \end{DoxyCompactList}\item 
+void \hyperlink{class_expressao_abee7466a912f23ddb5681b31641d50cb}{print\-Erros} (std\-::ostream $\ast$p\-Out)
+\begin{DoxyCompactList}\small\item\em Método que imprime os erros gerados pela expressão, caso existam. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Membros privados}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_expressao_a129eb361b81c38d02ee248a921677ddf}{aval\-Pos\-Fixa} (void)
+\begin{DoxyCompactList}\small\item\em Calcula o valor da expressão matemática exp contida nessa classe. \end{DoxyCompactList}\item 
+void \hyperlink{class_expressao_a78db9b198287567d82fc98d3684af9cc}{inf2\-Pos\-Fix} (void)
+\begin{DoxyCompactList}\small\item\em Gera uma fila com símbolos que representam uma expressão pós-\/fixada. \end{DoxyCompactList}\item 
+bool \hyperlink{class_expressao_a54af4fb6157b2bff0da85514ed4fd83b}{tokeniza} (void)
+\begin{DoxyCompactList}\small\item\em Método que gera uma fila símbolos a partir da string exp. \end{DoxyCompactList}\item 
+\hypertarget{class_expressao_a342b3aec1550af38a209e750383c6fdf}{void \hyperlink{class_expressao_a342b3aec1550af38a209e750383c6fdf}{clear} (void)}\label{class_expressao_a342b3aec1550af38a209e750383c6fdf}
+
+\begin{DoxyCompactList}\small\item\em Método limpa os atributos tokens, fila e erros. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_expressao_a2a9e296041b11983d15c8cd52849cd9b}{std\-::string \hyperlink{class_expressao_a2a9e296041b11983d15c8cd52849cd9b}{exp}}\label{class_expressao_a2a9e296041b11983d15c8cd52849cd9b}
+
+\begin{DoxyCompactList}\small\item\em exp guardará uma expressão matemática \end{DoxyCompactList}\item 
+\hypertarget{class_expressao_ae8528431a58ed3a8029737fdb3b732a4}{\hyperlink{class_fila}{Fila}$<$ \hyperlink{class_simbolo}{Simbolo} $>$ $\ast$ \hyperlink{class_expressao_ae8528431a58ed3a8029737fdb3b732a4}{tokens}}\label{class_expressao_ae8528431a58ed3a8029737fdb3b732a4}
+
+\begin{DoxyCompactList}\small\item\em Ponteiro para uma \hyperlink{class_fila}{Fila} que guardará os tokens de exp. \end{DoxyCompactList}\item 
+\hypertarget{class_expressao_afaf2de2113c7af473bef78456fcfe330}{\hyperlink{class_fila}{Fila}$<$ \hyperlink{class_simbolo}{Simbolo} $>$ $\ast$ \hyperlink{class_expressao_afaf2de2113c7af473bef78456fcfe330}{fila}}\label{class_expressao_afaf2de2113c7af473bef78456fcfe330}
+
+\begin{DoxyCompactList}\small\item\em Ponteiro para uma \hyperlink{class_fila}{Fila} que guardará os tokens no formato pós-\/fixo. \end{DoxyCompactList}\item 
+\hypertarget{class_expressao_a0bb6edb491bbe0a21b25057839e3daa0}{\hyperlink{class_fila}{Fila}$<$ \hyperlink{class_erro}{Erro} $>$ $\ast$ \hyperlink{class_expressao_a0bb6edb491bbe0a21b25057839e3daa0}{erros}}\label{class_expressao_a0bb6edb491bbe0a21b25057839e3daa0}
+
+\begin{DoxyCompactList}\small\item\em Ponteiro para uma \hyperlink{class_fila}{Fila} que guardará os erros na formação da expressão contida em exp, caso houver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+Armazena a expressão matemárica e os intermediários de sua avaliação e cálculo, assim como faz as tarefas de analisar e calcular a expressão. 
+
+Essa classe tem como objetivo armazenar e gerar valor ou mostrar os erros da expressão matemática inserida no programa principal. Essa expressão matemática deve ser passada como string para o construtor dessa classe e chama-\/se o método expr\-Value para calcular o valor da expressão. Caso esse método retorne false é necessário a chamada do método print\-Erros para a amostra dos erros contidos na expressão. \begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_erro}{Erro}, \hyperlink{class_simbolo}{Simbolo} 
+\end{DoxySeeAlso}
+
+
+\subsection{Documentação dos Construtores \& Destrutor}
+\hypertarget{class_expressao_a2f9ed2017ca70735ffb389bcdbb5c897}{\index{Expressao@{Expressao}!Expressao@{Expressao}}
+\index{Expressao@{Expressao}!Expressao@{Expressao}}
+\subsubsection[{Expressao}]{\setlength{\rightskip}{0pt plus 5cm}Expressao\-::\-Expressao (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{exp = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_a2f9ed2017ca70735ffb389bcdbb5c897}
+
+
+Construtor de \hyperlink{class_expressao}{Expressao}. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em exp} & std\-::string que será o valor do atributo exp (A expressão matemática que se deseja trabalhar) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentação dos métodos}
+\hypertarget{class_expressao_a129eb361b81c38d02ee248a921677ddf}{\index{Expressao@{Expressao}!aval\-Pos\-Fixa@{aval\-Pos\-Fixa}}
+\index{aval\-Pos\-Fixa@{aval\-Pos\-Fixa}!Expressao@{Expressao}}
+\subsubsection[{aval\-Pos\-Fixa}]{\setlength{\rightskip}{0pt plus 5cm}int Expressao\-::aval\-Pos\-Fixa (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_expressao_a129eb361b81c38d02ee248a921677ddf}
+
+
+Calcula o valor da expressão matemática exp contida nessa classe. 
+
+A partir de uma expressão pós-\/fixada gerada por inf2\-Pos\-Fixa, ou seja, a partir do atributo fila, este método calcula o valor da expressão contida nessa classe. Caso haja alguma divisão na qual o divisor é nulo, esse método incluirá na fila de erros esse erro e retornará 0. \begin{DoxyReturn}{Retorna}
+o valor da expressão exp ou 0 caso não seja válida 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_expressao_a54af4fb6157b2bff0da85514ed4fd83b}{tokeniza}, inf2\-Pos\-Fixa 
+\end{DoxySeeAlso}
+\hypertarget{class_expressao_a4fc26c444cd7db30036a7e23f0d1c61b}{\index{Expressao@{Expressao}!expr\-Value@{expr\-Value}}
+\index{expr\-Value@{expr\-Value}!Expressao@{Expressao}}
+\subsubsection[{expr\-Value}]{\setlength{\rightskip}{0pt plus 5cm}bool Expressao\-::expr\-Value (
+\begin{DoxyParamCaption}
+\item[{int \&}]{res}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_a4fc26c444cd7db30036a7e23f0d1c61b}
+
+
+Calcula o resultado da expressão. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em res} & será o inteiro correspondente ao resultado da expressão exp, caso a função retorne true \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se não houver erros na expressão ou false caso exista erros 
+\end{DoxyReturn}
+\hypertarget{class_expressao_a587f25fab7f90ac3d3057065a2f2ea09}{\index{Expressao@{Expressao}!get\-Char@{get\-Char}}
+\index{get\-Char@{get\-Char}!Expressao@{Expressao}}
+\subsubsection[{get\-Char}]{\setlength{\rightskip}{0pt plus 5cm}char Expressao\-::get\-Char (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{c}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_a587f25fab7f90ac3d3057065a2f2ea09}
+
+
+Extrai um caractere do atributo exp. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em c} & é um índice de exp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+o caractere de exp do índice c 
+\end{DoxyReturn}
+\hypertarget{class_expressao_ab3fd4ae47efcf6c17b245e8387f0260c}{\index{Expressao@{Expressao}!get\-Exp@{get\-Exp}}
+\index{get\-Exp@{get\-Exp}!Expressao@{Expressao}}
+\subsubsection[{get\-Exp}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Expressao\-::get\-Exp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_ab3fd4ae47efcf6c17b245e8387f0260c}
+
+
+Retorna o valor do atributo exp. 
+
+\begin{DoxyReturn}{Retorna}
+atributo exp 
+\end{DoxyReturn}
+\hypertarget{class_expressao_a78db9b198287567d82fc98d3684af9cc}{\index{Expressao@{Expressao}!inf2\-Pos\-Fix@{inf2\-Pos\-Fix}}
+\index{inf2\-Pos\-Fix@{inf2\-Pos\-Fix}!Expressao@{Expressao}}
+\subsubsection[{inf2\-Pos\-Fix}]{\setlength{\rightskip}{0pt plus 5cm}void Expressao\-::inf2\-Pos\-Fix (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_expressao_a78db9b198287567d82fc98d3684af9cc}
+
+
+Gera uma fila com símbolos que representam uma expressão pós-\/fixada. 
+
+Esse método armazena em fila(atributo dessa classe) os mesmos simbolos contidos em tokens, porém numa ordem que representa o formato pós-\/fixado dessa expressão \begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_expressao_a54af4fb6157b2bff0da85514ed4fd83b}{tokeniza} 
+\end{DoxySeeAlso}
+\hypertarget{class_expressao_adad3bc63c44d2def1d31e34d0e7e8d96}{\index{Expressao@{Expressao}!is\-Digit@{is\-Digit}}
+\index{is\-Digit@{is\-Digit}!Expressao@{Expressao}}
+\subsubsection[{is\-Digit}]{\setlength{\rightskip}{0pt plus 5cm}bool Expressao\-::is\-Digit (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{c}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_adad3bc63c44d2def1d31e34d0e7e8d96}
+
+
+Avalia se um caractere é um dígito. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em c} & é um índice qualquer do atributo exp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se exp\mbox{[}c\mbox{]} for um dígito e false se não for 
+\end{DoxyReturn}
+\hypertarget{class_expressao_a355f8c921fd7246530eb87d1a841d17e}{\index{Expressao@{Expressao}!is\-Empty\-Exp@{is\-Empty\-Exp}}
+\index{is\-Empty\-Exp@{is\-Empty\-Exp}!Expressao@{Expressao}}
+\subsubsection[{is\-Empty\-Exp}]{\setlength{\rightskip}{0pt plus 5cm}bool Expressao\-::is\-Empty\-Exp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_a355f8c921fd7246530eb87d1a841d17e}
+
+
+Verifica se a expressão contém algum caractere além de espaços e tabulações. 
+
+\begin{DoxyReturn}{Retorna}
+booleano true se só houver espaços e tabulações e false se houver pelo menos um diferente 
+\end{DoxyReturn}
+\hypertarget{class_expressao_ab3e99e5db4b2e7df65aff71895311359}{\index{Expressao@{Expressao}!is\-Ign\-Char@{is\-Ign\-Char}}
+\index{is\-Ign\-Char@{is\-Ign\-Char}!Expressao@{Expressao}}
+\subsubsection[{is\-Ign\-Char}]{\setlength{\rightskip}{0pt plus 5cm}bool Expressao\-::is\-Ign\-Char (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{c}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_ab3e99e5db4b2e7df65aff71895311359}
+
+
+Avalia se um caractere é ignorável. 
+
+Para o projeto, caracteres ignorável são tabulações(código A\-S\-C\-I\-I 9) e espaços(código A\-S\-C\-I\-I 32) 
+\begin{DoxyParams}{Parâmetros}
+{\em c} & é um índice qualquer do atributo exp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se exp\mbox{[}c\mbox{]} for caractere ignorável e false se não 
+\end{DoxyReturn}
+\hypertarget{class_expressao_acf8915b3ca14cd0fc45bc57827486496}{\index{Expressao@{Expressao}!is\-Not\-Minus@{is\-Not\-Minus}}
+\index{is\-Not\-Minus@{is\-Not\-Minus}!Expressao@{Expressao}}
+\subsubsection[{is\-Not\-Minus}]{\setlength{\rightskip}{0pt plus 5cm}bool Expressao\-::is\-Not\-Minus (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{c}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_acf8915b3ca14cd0fc45bc57827486496}
+
+
+Avalia se um caractere não é igual a '-\/'. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em c} & é um índice qualquer do atributo exp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se exp\mbox{[}c\mbox{]} for diferente de '-\/' e false se for 
+\end{DoxyReturn}
+\hypertarget{class_expressao_afb4109a0b03df89822e8ddd1adf23c5d}{\index{Expressao@{Expressao}!isn\-Val\-Opt@{isn\-Val\-Opt}}
+\index{isn\-Val\-Opt@{isn\-Val\-Opt}!Expressao@{Expressao}}
+\subsubsection[{isn\-Val\-Opt}]{\setlength{\rightskip}{0pt plus 5cm}bool Expressao\-::isn\-Val\-Opt (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{c}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_afb4109a0b03df89822e8ddd1adf23c5d}
+
+
+Avalia se um caractere é um operador não válido. 
+
+Para o projeto, operadores não válidos são '$>$','$<$','=','.',',' 
+\begin{DoxyParams}{Parâmetros}
+{\em c} & é um índice qualquer do atributo exp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se exp\mbox{[}c\mbox{]} for um operador não válido e false se não 
+\end{DoxyReturn}
+\hypertarget{class_expressao_adf12d6d7571fe77d2741b494b9f5e84c}{\index{Expressao@{Expressao}!is\-Parnt@{is\-Parnt}}
+\index{is\-Parnt@{is\-Parnt}!Expressao@{Expressao}}
+\subsubsection[{is\-Parnt}]{\setlength{\rightskip}{0pt plus 5cm}bool Expressao\-::is\-Parnt (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{c}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_adf12d6d7571fe77d2741b494b9f5e84c}
+
+
+Avalia se um caractere é um parêntese. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em c} & é um índice qualquer do atributo exp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se exp\mbox{[}c\mbox{]} for um parêntese e false se não for 
+\end{DoxyReturn}
+\hypertarget{class_expressao_a52c96971124d33b8b4268e6da14e8ca8}{\index{Expressao@{Expressao}!is\-Val\-Char@{is\-Val\-Char}}
+\index{is\-Val\-Char@{is\-Val\-Char}!Expressao@{Expressao}}
+\subsubsection[{is\-Val\-Char}]{\setlength{\rightskip}{0pt plus 5cm}bool Expressao\-::is\-Val\-Char (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{c}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_a52c96971124d33b8b4268e6da14e8ca8}
+
+
+Avalia se um caractere válido para o programa. 
+
+Para o projeto, caracteres válidos são todos '(',')','+','-\/'.'$\ast$','/','$^\wedge$','',tabulações(código A\-S\-C\-I\-I 9), espaços(código A\-S\-C\-I\-I 32) e dígitos de 0 a 9. \begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_expressao_a9f9e7084b531dc4885a783949d64cfa5}{is\-Val\-Opt} 
+
+\hyperlink{class_expressao_adf12d6d7571fe77d2741b494b9f5e84c}{is\-Parnt} 
+
+\hyperlink{class_expressao_ab3e99e5db4b2e7df65aff71895311359}{is\-Ign\-Char} 
+
+\hyperlink{class_expressao_adad3bc63c44d2def1d31e34d0e7e8d96}{is\-Digit} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parâmetros}
+{\em c} & é um índice qualquer do atributo exp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se exp\mbox{[}c\mbox{]} for caractere válido e false se não 
+\end{DoxyReturn}
+\hypertarget{class_expressao_a9f9e7084b531dc4885a783949d64cfa5}{\index{Expressao@{Expressao}!is\-Val\-Opt@{is\-Val\-Opt}}
+\index{is\-Val\-Opt@{is\-Val\-Opt}!Expressao@{Expressao}}
+\subsubsection[{is\-Val\-Opt}]{\setlength{\rightskip}{0pt plus 5cm}bool Expressao\-::is\-Val\-Opt (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{c}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_a9f9e7084b531dc4885a783949d64cfa5}
+
+
+Avalia se um caractere é um operador válido. 
+
+Para o projeto, operadores válidos são '+','-\/'.'$\ast$','/','$^\wedge$','' 
+\begin{DoxyParams}{Parâmetros}
+{\em c} & é um índice qualquer do atributo exp \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se exp\mbox{[}c\mbox{]} for um operador válido e false se não 
+\end{DoxyReturn}
+\hypertarget{class_expressao_abee7466a912f23ddb5681b31641d50cb}{\index{Expressao@{Expressao}!print\-Erros@{print\-Erros}}
+\index{print\-Erros@{print\-Erros}!Expressao@{Expressao}}
+\subsubsection[{print\-Erros}]{\setlength{\rightskip}{0pt plus 5cm}void Expressao\-::print\-Erros (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream $\ast$}]{p\-Out}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_abee7466a912f23ddb5681b31641d50cb}
+
+
+Método que imprime os erros gerados pela expressão, caso existam. 
+
+Este método lê todos os erros contidos no atributo \hyperlink{class_fila}{Fila$<$\-Simbolo$>$} erros e imprime no objeto p\-Out passado como parâmetro 
+\begin{DoxyParams}{Parâmetros}
+{\em p\-Out} & um ponteiro do tipo std\-::ostream para onde a impressão dos elementos da fila de erros serão direcionadas \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_expressao_a4fc26c444cd7db30036a7e23f0d1c61b}{expr\-Value} 
+\end{DoxySeeAlso}
+\hypertarget{class_expressao_a31767733140b94bc842fdde4b5e26ea9}{\index{Expressao@{Expressao}!set\-Exp@{set\-Exp}}
+\index{set\-Exp@{set\-Exp}!Expressao@{Expressao}}
+\subsubsection[{set\-Exp}]{\setlength{\rightskip}{0pt plus 5cm}void Expressao\-::set\-Exp (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{e}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_a31767733140b94bc842fdde4b5e26ea9}
+
+
+Modifica o atributo exp. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em e} & será o novo valor do atributo exp \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_expressao_abdbb9a483991e82e37f794c3dc0b647a}{\index{Expressao@{Expressao}!sub\-Str@{sub\-Str}}
+\index{sub\-Str@{sub\-Str}!Expressao@{Expressao}}
+\subsubsection[{sub\-Str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Expressao\-::sub\-Str (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i, }
+\item[{unsigned int}]{j}
+\end{DoxyParamCaption}
+)}}\label{class_expressao_abdbb9a483991e82e37f794c3dc0b647a}
+
+
+Método que retorna uma substring de exp baseado em dois índices. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em i} & o índice da string exp que determinará o índice inicial dessa substring \\
+\hline
+{\em j} & o índice da string exp tal que \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+retorna uma substring com índice inicial i e final j-\/1, baseados na string inicial exp 
+\end{DoxyReturn}
+\hypertarget{class_expressao_a54af4fb6157b2bff0da85514ed4fd83b}{\index{Expressao@{Expressao}!tokeniza@{tokeniza}}
+\index{tokeniza@{tokeniza}!Expressao@{Expressao}}
+\subsubsection[{tokeniza}]{\setlength{\rightskip}{0pt plus 5cm}bool Expressao\-::tokeniza (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}}\label{class_expressao_a54af4fb6157b2bff0da85514ed4fd83b}
+
+
+Método que gera uma fila símbolos a partir da string exp. 
+
+Método lê a string exp(que é uma expressão matemática) procurando por erros de sintaxe e por caracteres inválidos. Se encontrar erros, adiciona à fila erros(atributo desta classe), se não adiciona os tokens(termos da expressão matemática) à fila tokens(atributo desta classe) na ordem que eles estão na expressão.
+
+Nota\-: tokens são os termos de uma expressão matemática, como por exemplo\-: exp=\char`\"{}1000+14$\ast$(16-\/12)\char`\"{} os tokens gerados serão\-: \char`\"{}1000\char`\"{}, \char`\"{}+\char`\"{},\char`\"{}14\char`\"{},\char`\"{}(\char`\"{},\char`\"{}16\char`\"{},\char`\"{}-\/\char`\"{},\char`\"{}12\char`\"{},\char`\"{})\char`\"{} Note que esses tokens gerados serão do tipo \hyperlink{class_simbolo}{Simbolo}. \begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_erro}{Erro}, inf2\-Pos\-Fixa, \hyperlink{class_expressao_a129eb361b81c38d02ee248a921677ddf}{aval\-Pos\-Fixa}, \hyperlink{class_expressao_ae8528431a58ed3a8029737fdb3b732a4}{tokens}, \hyperlink{class_expressao_a0bb6edb491bbe0a21b25057839e3daa0}{erros} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Retorna}
+true se for uma expressão válida e false se não 
+\end{DoxyReturn}
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{header_8hpp}{header.\-hpp}\item 
+src/\hyperlink{expressao_8cpp}{expressao.\-cpp}\end{DoxyCompactItemize}

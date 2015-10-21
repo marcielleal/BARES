@@ -1,0 +1,116 @@
+   25    /   5 + 4 *    8   
+37
+(2+3) * 8
+40
+5 % 2 ^4
+5
+ (5 % 2) ^4
+1
+(a + 2)
+Operando inválido: existe um operando que não é constante numérica. (Coluna: 2)
+    ( 6 - 12 ) / (5 - 3)
+-3
+2 +
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 3)
+3 * * 4
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 3)
+2  3
+Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: 1)
+/ 2
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 1)
+( 5 + 3
+Escopo aberto: existe um parêntese de abertura '(' sem um parêntese de fechamento ')' correspondente. (Coluna: 1)
+  2 + 7 )
+Fechamento de escopo inválido: existe um parêntese fechando sem haver um parêntese abrindo correspondente. (Coluna: 9)
+ 2/ (1-1)
+Divisão por zero: Existe uma divisão cujo divisor é zero. (Coluna: 3)
+1 + (-3)
+-2
+    25-2/( 3 * 3 ^ -2 )
+Divisão por zero: Existe uma divisão cujo divisor é zero. (Coluna: 9)
+3^ -2
+0
+(3 + 2)
+5
+        ( 4-2+5%2 ) * 8
+24
+1+--3
+4
+1+---3
+-2
+1+----3
+4
+1*---3
+-3
+1-+3
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 2)
+-+3
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 1)
+-3
+-3
+12-1+-(---(-(-2)))
+13
+---3
+-3
+----3
+3
+-3
+-3
+-+--3
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 1)
+-10000000000-2
+Constante numérica inválida: um dos operandos da expressão está fora da faixa permitida. (Coluna: 2)
+
+Erro: expressão vazia!!
+)12+(14*12
+Fechamento de escopo inválido: existe um parêntese fechando sem haver um parêntese abrindo correspondente. (Coluna: 1)
+Escopo aberto: existe um parêntese de abertura '(' sem um parêntese de fechamento ')' correspondente. (Coluna: 5)
+12(15*15)
+Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: 1)
+(15*15)12
+Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: 7)
+12 12 (15+14)
+Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: 1)
+Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: 4)
+12*()+15
+Escopo vazio: Parênteses sem nada em seu interior. (Coluna: 5)
+12*( )+15
+Escopo vazio: Parênteses sem nada em seu interior. (Coluna: 6)
+
+Erro: expressão vazia!!
+12++14
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 3)
+12+(12)
+24
+(15+15)*2
+60
+(15+15)  2
+Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: 7)
+(15+15+ )  2
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 7)
+Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: 9)
+(+75*7*) 12
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 1)
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 7)
+Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: 8)
+(               )+12
+Escopo vazio: Parênteses sem nada em seu interior. (Coluna: 17)
+(            +   )+12
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 1)
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 14)
+((()()(
+Escopo aberto: existe um parêntese de abertura '(' sem um parêntese de fechamento ')' correspondente. (Coluna: 7)
+Escopo aberto: existe um parêntese de abertura '(' sem um parêntese de fechamento ')' correspondente. (Coluna: 2)
+Escopo aberto: existe um parêntese de abertura '(' sem um parêntese de fechamento ')' correspondente. (Coluna: 1)
+12 * *14
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 4)
+12/0+12/0
+Divisão por zero: Existe uma divisão cujo divisor é zero. (Coluna: 3)
+Divisão por zero: Existe uma divisão cujo divisor é zero. (Coluna: 8)
+12 12  156
+Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: 1)
+Falta operador: em alguma parte da expressão está faltando um operador. (Coluna: 4)
+(12*) *14
+Falta operando: em alguma parte da expressão está faltando um operando . (Coluna: 4)
+
+Erro: expressão vazia!!

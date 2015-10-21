@@ -1,0 +1,120 @@
+\hypertarget{class_erro}{\section{Referência à classe Erro}
+\label{class_erro}\index{Erro@{Erro}}
+}
+
+
+Uma instância dessa classe guarda um tipo de erro e a coluna em que ele ocorreu em relação a expressão matemática original.  
+
+
+
+
+{\ttfamily \#include $<$header.\-hpp$>$}
+
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_erro_a13cee93b512d274148d1357a3f490b02}{Erro} (int i=1, int \hyperlink{class_erro_a6134fb8eff73c4ce1fe1da37ac484ae9}{col}=0)
+\begin{DoxyCompactList}\small\item\em Contrutor da classe \hyperlink{class_erro}{Erro}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{class_erro_a88b4b69d608c3eba8aeaead2e6a78fcf}{str} \mbox{[}10\mbox{]}
+\begin{DoxyCompactList}\small\item\em Vetor de strings contendo todos os erros detectáveis pelo programa. \end{DoxyCompactList}\item 
+\hypertarget{class_erro_a7e1772f74840101973c1a724059c874f}{int \hyperlink{class_erro_a7e1772f74840101973c1a724059c874f}{erro}}\label{class_erro_a7e1772f74840101973c1a724059c874f}
+
+\begin{DoxyCompactList}\small\item\em O número do erro. \end{DoxyCompactList}\item 
+\hypertarget{class_erro_a6134fb8eff73c4ce1fe1da37ac484ae9}{int \hyperlink{class_erro_a6134fb8eff73c4ce1fe1da37ac484ae9}{col}}\label{class_erro_a6134fb8eff73c4ce1fe1da37ac484ae9}
+
+\begin{DoxyCompactList}\small\item\em Coluna da ocorrência do erro em relação à expressão original. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amigos}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_erro_a2c0d33bbcdfb4248314e3f73df5f42a5}{std\-::ostream \& \hyperlink{class_erro_a2c0d33bbcdfb4248314e3f73df5f42a5}{operator$<$$<$} (std\-::ostream \&\-\_\-os, const \hyperlink{class_erro}{Erro} \&\-\_\-o\-Err)}\label{class_erro_a2c0d33bbcdfb4248314e3f73df5f42a5}
+
+\begin{DoxyCompactList}\small\item\em Definição do operador $<$$<$ para a classe \hyperlink{class_erro}{Erro}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+Uma instância dessa classe guarda um tipo de erro e a coluna em que ele ocorreu em relação a expressão matemática original. 
+
+Lista dos tipos de erros identificados pelo programa
+
+Todos os erros(excetuando-\/se o de entradas vazias), vêm seguidos por um inteiro x que representa a coluna da expressão na qual o erro foi identificado. Nota\-: A contagem das colunas começa por 1 e espaços e tabulações não são ignorados em nenhum dos casos.
+
+Tipo 1\-: \char`\"{}\-Constante numérica inválida\-: um dos operandos da expressão está fora da faixa permitida. (\-Coluna x)\char`\"{} Sempre que houver uma constante numérica inteira que é maior que 32767. A coluna indicada será o índice do primeiro caractere da constante numérica em relação à expressão original.
+
+Note que aqui não se considera unários, somente a constante em si, logo se houver uma entrada do tipo -\/100000000-\/2, a coluna indicada pelo erro será a coluna 2.
+
+Tipo 2\-: \char`\"{}\-Falta operando\-: em alguma parte da expressão está faltando um operando . (\-Coluna\-: x)\char`\"{} Sempre que houver falta de operando. A coluna indicada será o índice do último operador ou parêntese válido. Exemplo\-: 12$\ast$ $\ast$14 A coluna indicada pelo erro será a coluna 3.
+
+Tipo 3\-: \char`\"{}\-Operando inválido\-: existe um operando que não é constante numérica. (\-Coluna\-: x)\char`\"{} Sempre que houver um caractere que não está na lista de caracteres válidos e nem na de um operando válido A coluna indicada será a coluna na qual o caractere está em relação à expressão original
+
+Tipo 4\-: \char`\"{}\-Operador inválido\-: existe um símbolo correspondente a um operador que não está na lista de operadores válidos. (\-Coluna\-: x)\char`\"{} Sempre que houver um dos caracteres ',', '$<$', '$>$', '=', '.' A coluna indicada será a coluna na qual o caractere está em relação à expressão original
+
+Tipo 5\-: \char`\"{}\-Falta operador\-: em alguma parte da expressão está faltando um operador. (\-Coluna\-: x)\char`\"{} Sempre que houver falta de operador. A coluna indicada será o índice do último operada ou parêntese válido. Exemplo\-: 12 14 A coluna indicada pelo erro será a coluna 1.
+
+Tipo 6\-: \char`\"{}\-Fechamento de escopo inválido\-: existe um parêntese fechando sem haver um parêntese abrindo correspondente. (\-Coluna\-: x)\char`\"{} Sempre que houver um parêntese fechando sem ter um correspondente abrindo. A coluna indicada será a coluna na qual o caractere está em relação à expressão original.
+
+Tipo 7\-: \char`\"{}\-Escopo aberto\-: existe um parêntese de abertura '(' sem um parêntese de fechamento ')' correspondente. (\-Coluna\-: x)\char`\"{} Sempre que houver um parêntese abrindo ser ter um correspondente fechando. A coluna indicada será a coluna na qual o caractere está em relação à expressão original.
+
+Tipo 8\-: \char`\"{}\-Divisão por zero\-: Existe uma divisão cujo divisor é zero. (\-Coluna\-: x)\char`\"{} Sempre que houver uma divisão na qual o divisor é zero. A coluna indicada será a coluna do operador sobre o qual o erro ocorreu, coluna essa em relação a string original.
+
+Tipo 9\-:\char`\"{}\-Escopo vazio\-: Parênteses sem nada em seu interior. (\-Coluna\-: x)\char`\"{} Parênteses de abertura e fechamento contíguos, ou seja, \char`\"{}( )\char`\"{}. A coluna indicada será a coluna na qual o parêntese de fechamento está em relação a string original
+
+Tipo 10\-:\char`\"{}\-Erro\-: expressão vazia!!\char`\"{} Expressão que só contém espaços ou tabulações. A coluna armazenada por esse erro é o inteiro -\/1, o que é irrelevante. 
+
+\subsection{Documentação dos Construtores \& Destrutor}
+\hypertarget{class_erro_a13cee93b512d274148d1357a3f490b02}{\index{Erro@{Erro}!Erro@{Erro}}
+\index{Erro@{Erro}!Erro@{Erro}}
+\subsubsection[{Erro}]{\setlength{\rightskip}{0pt plus 5cm}Erro\-::\-Erro (
+\begin{DoxyParamCaption}
+\item[{int}]{i = {\ttfamily 1}, }
+\item[{int}]{col = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{class_erro_a13cee93b512d274148d1357a3f490b02}
+
+
+Contrutor da classe \hyperlink{class_erro}{Erro}. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em i} & é o tipo de erro \\
+\hline
+{\em col} & é o número da coluna \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentação dos dados membro}
+\hypertarget{class_erro_a88b4b69d608c3eba8aeaead2e6a78fcf}{\index{Erro@{Erro}!str@{str}}
+\index{str@{str}!Erro@{Erro}}
+\subsubsection[{str}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Erro\-::str\mbox{[}10\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}}\label{class_erro_a88b4b69d608c3eba8aeaead2e6a78fcf}
+{\bfseries Valor inicial\-:}
+\begin{DoxyCode}
+=\{\textcolor{stringliteral}{"Constante numérica inválida: um dos operandos da expressão está fora da faixa permitida. (Coluna: "},
+                            \textcolor{stringliteral}{"Falta operando: em alguma parte da expressão está faltando um operando .
+       (Coluna: "},
+                            \textcolor{stringliteral}{"Operando inválido: existe um operando que não é constante numérica. (Coluna: "}
+      ,
+                            \textcolor{stringliteral}{"Operador inválido: existe um símbolo correspondente a um operador que não está
+       na lista de operadores válidos. (Coluna: "},
+                            \textcolor{stringliteral}{"Falta operador: em alguma parte da expressão está faltando um operador.
+       (Coluna: "},
+                            \textcolor{stringliteral}{"Fechamento de escopo inválido: existe um parêntese fechando sem haver um
+       parêntese abrindo correspondente. (Coluna: "},
+                            \textcolor{stringliteral}{"Escopo aberto: existe um parêntese de abertura '(' sem um parêntese de
+       fechamento ')' correspondente. (Coluna: "},
+                            \textcolor{stringliteral}{"Divisão por zero: Existe uma divisão cujo divisor é zero. (Coluna: "},
+                            \textcolor{stringliteral}{"Escopo vazio: Parênteses sem nada em seu interior. (Coluna: "},
+                            \textcolor{stringliteral}{"Erro: expressão vazia!!"}\}
+\end{DoxyCode}
+
+
+Vetor de strings contendo todos os erros detectáveis pelo programa. 
+
+
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{header_8hpp}{header.\-hpp}\item 
+src/\hyperlink{erro_8cpp}{erro.\-cpp}\end{DoxyCompactItemize}

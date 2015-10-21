@@ -1,0 +1,350 @@
+\hypertarget{class_simbolo}{\section{Referência à classe Simbolo}
+\label{class_simbolo}\index{Simbolo@{Simbolo}}
+}
+
+
+armazena uma string simb(um símbolo) e possui vários métodos para identificar propriedades dela.  
+
+
+
+
+{\ttfamily \#include $<$header.\-hpp$>$}
+
+\subsection*{Membros públicos}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{class_simbolo_a1a8737a63b3cce4eaeb6e14be3ab52da}{Simbolo} (T \hyperlink{class_simbolo_a2114c92c128d535912bab50b9406d30e}{simb}=\char`\"{}\char`\"{}, int col=0)
+\begin{DoxyCompactList}\small\item\em Construtor da classe \hyperlink{class_simbolo}{Simbolo}. \end{DoxyCompactList}\item 
+\hypertarget{class_simbolo_a84bdb92f42513e38a29b0838e6d0e822}{\hyperlink{class_simbolo_a84bdb92f42513e38a29b0838e6d0e822}{Simbolo} ()}\label{class_simbolo_a84bdb92f42513e38a29b0838e6d0e822}
+
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \hyperlink{class_simbolo}{Simbolo}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_simbolo_a8962891d225bab0bc303ae18479e1819}{is\-Digit} (unsigned int i) const 
+\begin{DoxyCompactList}\small\item\em Método que diz se um caractere i da string simb é um dígito. \end{DoxyCompactList}\item 
+bool \hyperlink{class_simbolo_a9279c6324f734268c1b791f48a23c11e}{is\-Operand} (void) const 
+\begin{DoxyCompactList}\small\item\em Método que mostra se a string simb corresponde a um operando, ou seja, se é uma constante inteira menos que 32767. \end{DoxyCompactList}\item 
+bool \hyperlink{class_simbolo_a6a8ad5148ec3fc647db2a6908b541ae3}{is\-Operator} (void) const 
+\begin{DoxyCompactList}\small\item\em Método que mostra se a string simb corresponde a um operador. \end{DoxyCompactList}\item 
+int \hyperlink{class_simbolo_a3b871fb6dfe874c43b9efea39d24c419}{prec} () const 
+\begin{DoxyCompactList}\small\item\em Calcula a precedência do símbolo contido nessa classe(stributo simb) \end{DoxyCompactList}\item 
+int \hyperlink{class_simbolo_a0e0c1733cc694a9f9e53d8935d308601}{get\-Int} () const 
+\begin{DoxyCompactList}\small\item\em Calcula o inteiro correspondente à string simb. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \hyperlink{class_simbolo_a8834f282dd88bf905a9f008676f874eb}{set\-Simb} (T str)
+\begin{DoxyCompactList}\small\item\em Altera o atributo simb. \end{DoxyCompactList}\item 
+std\-::string \hyperlink{class_simbolo_ad2e86fd9678cc05b495938e27ef04b50}{get\-Simb} () const 
+\begin{DoxyCompactList}\small\item\em Retorna o valor do atributo simb. \end{DoxyCompactList}\item 
+void \hyperlink{class_simbolo_a9717bf2cea703db82e87c10a58655171}{set\-Col} (int col)
+\begin{DoxyCompactList}\small\item\em Altera o atributo coluna. \end{DoxyCompactList}\item 
+int \hyperlink{class_simbolo_a703e96438e392151f46cbdc8ac44c741}{get\-Col} (void) const 
+\begin{DoxyCompactList}\small\item\em Retorna o valor do atributo coluna. \end{DoxyCompactList}\item 
+bool \hyperlink{class_simbolo_a01b430f8460d586518d0c76cf2d07d5a}{is\-Open\-Par} () const 
+\begin{DoxyCompactList}\small\item\em Verifica se simb é um parêntese de abertura. \end{DoxyCompactList}\item 
+bool \hyperlink{class_simbolo_a9d76ad26a52668275249753e423c3b0f}{is\-Close\-Par} () const 
+\begin{DoxyCompactList}\small\item\em Verifica se simb é um parêntese de fechamento. \end{DoxyCompactList}\item 
+bool \hyperlink{class_simbolo_ad79485717cf10a7b91d88bb8601033e3}{aplic} (int a, int b, int \&res) const 
+\begin{DoxyCompactList}\small\item\em Se simb for um operador, este método calcula o valor da expressão cujos operandos são a e b e o operador é simb. \end{DoxyCompactList}\item 
+void \hyperlink{class_simbolo_a56163728117b5af530e4da38c3529860}{operator=} (std\-::string s)
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operator =. \end{DoxyCompactList}\item 
+bool \hyperlink{class_simbolo_a7ff886b63ec4b31cd8351f545c4db897}{operator==} (std\-::string s)
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operator ==. \end{DoxyCompactList}\item 
+bool \hyperlink{class_simbolo_aeedc387655f4f464149b6dafd83e7e88}{operator!=} (std\-::string s)
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operator !=. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_simbolo_ad4e2e190d1f4e337db6feba02e047afd}{bool \hyperlink{class_simbolo_ad4e2e190d1f4e337db6feba02e047afd}{is\-Unr\-Minus}}\label{class_simbolo_ad4e2e190d1f4e337db6feba02e047afd}
+
+\begin{DoxyCompactList}\small\item\em Diz se simb corresponde. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_simbolo_a2114c92c128d535912bab50b9406d30e}{std\-::string \hyperlink{class_simbolo_a2114c92c128d535912bab50b9406d30e}{simb}}\label{class_simbolo_a2114c92c128d535912bab50b9406d30e}
+
+\begin{DoxyCompactList}\small\item\em sim guardará uma string contendo o símbolo \end{DoxyCompactList}\item 
+\hypertarget{class_simbolo_aa23f21b84a1e1f451d404e6df1aaff1b}{int \hyperlink{class_simbolo_aa23f21b84a1e1f451d404e6df1aaff1b}{coluna}}\label{class_simbolo_aa23f21b84a1e1f451d404e6df1aaff1b}
+
+\begin{DoxyCompactList}\small\item\em coluna guardará a coluna do símbolo em relação a string original \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amigos}
+\begin{DoxyCompactItemize}
+\item 
+std\-::ostream \& \hyperlink{class_simbolo_aa8599b912a228132e004a92ec85a2fce}{operator$<$$<$} (std\-::ostream \&\-\_\-os, const \hyperlink{class_simbolo}{Simbolo} \&\-\_\-o\-Sim)
+\begin{DoxyCompactList}\small\item\em Método para facilitar a impressão de dados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição detalhada}
+armazena uma string simb(um símbolo) e possui vários métodos para identificar propriedades dela. 
+
+\subsection{Documentação dos Construtores \& Destrutor}
+\hypertarget{class_simbolo_a1a8737a63b3cce4eaeb6e14be3ab52da}{\index{Simbolo@{Simbolo}!Simbolo@{Simbolo}}
+\index{Simbolo@{Simbolo}!Simbolo@{Simbolo}}
+\subsubsection[{Simbolo}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ Simbolo\-::\-Simbolo (
+\begin{DoxyParamCaption}
+\item[{T}]{simb = {\ttfamily \char`\"{}\char`\"{}}, }
+\item[{int}]{col = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{class_simbolo_a1a8737a63b3cce4eaeb6e14be3ab52da}
+
+
+Construtor da classe \hyperlink{class_simbolo}{Simbolo}. 
+
+Nota\-: não funciona com tipos diferente de string ou char 
+\begin{DoxyParams}{Parâmetros}
+{\em simb} & será o valor do atributo simb \\
+\hline
+{\em col} & será o valor do atributo coluna \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentação dos métodos}
+\hypertarget{class_simbolo_ad79485717cf10a7b91d88bb8601033e3}{\index{Simbolo@{Simbolo}!aplic@{aplic}}
+\index{aplic@{aplic}!Simbolo@{Simbolo}}
+\subsubsection[{aplic}]{\setlength{\rightskip}{0pt plus 5cm}bool Simbolo\-::aplic (
+\begin{DoxyParamCaption}
+\item[{int}]{a, }
+\item[{int}]{b, }
+\item[{int \&}]{res}
+\end{DoxyParamCaption}
+) const}}\label{class_simbolo_ad79485717cf10a7b91d88bb8601033e3}
+
+
+Se simb for um operador, este método calcula o valor da expressão cujos operandos são a e b e o operador é simb. 
+
+Repare que se simb for / ou \%, b precisa ser não nulo para que seja possível o cálculo(já que b é sempre o segundo operando). Caso tivermos operadores desse tipo e b for nulo, este método retornará false. 
+\begin{DoxyParams}{Parâmetros}
+{\em a,b} & são os valores que se deseja calcular \\
+\hline
+{\em res} & é uma referência a uma variável na qual será escrita o valor da expressão \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true caso não estiver ocorrido erro no cálculo 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Veja também}
+aval\-Pos\-Fixa, \hyperlink{class_simbolo_a6a8ad5148ec3fc647db2a6908b541ae3}{is\-Operator} 
+\end{DoxySeeAlso}
+\hypertarget{class_simbolo_a703e96438e392151f46cbdc8ac44c741}{\index{Simbolo@{Simbolo}!get\-Col@{get\-Col}}
+\index{get\-Col@{get\-Col}!Simbolo@{Simbolo}}
+\subsubsection[{get\-Col}]{\setlength{\rightskip}{0pt plus 5cm}int Simbolo\-::get\-Col (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_simbolo_a703e96438e392151f46cbdc8ac44c741}
+
+
+Retorna o valor do atributo coluna. 
+
+\begin{DoxyReturn}{Retorna}
+o valor do atributo coluna 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_a0e0c1733cc694a9f9e53d8935d308601}{\index{Simbolo@{Simbolo}!get\-Int@{get\-Int}}
+\index{get\-Int@{get\-Int}!Simbolo@{Simbolo}}
+\subsubsection[{get\-Int}]{\setlength{\rightskip}{0pt plus 5cm}int Simbolo\-::get\-Int (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_simbolo_a0e0c1733cc694a9f9e53d8935d308601}
+
+
+Calcula o inteiro correspondente à string simb. 
+
+\begin{DoxySeeAlso}{Veja também}
+\hyperlink{class_simbolo_a9279c6324f734268c1b791f48a23c11e}{is\-Operand} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Retorna}
+inteiro correspondente a string simb, caso is\-Operand for true, ou 0, caso is\-Operand for false 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_ad2e86fd9678cc05b495938e27ef04b50}{\index{Simbolo@{Simbolo}!get\-Simb@{get\-Simb}}
+\index{get\-Simb@{get\-Simb}!Simbolo@{Simbolo}}
+\subsubsection[{get\-Simb}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Simbolo\-::get\-Simb (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_simbolo_ad2e86fd9678cc05b495938e27ef04b50}
+
+
+Retorna o valor do atributo simb. 
+
+\begin{DoxyReturn}{Retorna}
+o valor do atributo simb 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_a9d76ad26a52668275249753e423c3b0f}{\index{Simbolo@{Simbolo}!is\-Close\-Par@{is\-Close\-Par}}
+\index{is\-Close\-Par@{is\-Close\-Par}!Simbolo@{Simbolo}}
+\subsubsection[{is\-Close\-Par}]{\setlength{\rightskip}{0pt plus 5cm}bool Simbolo\-::is\-Close\-Par (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_simbolo_a9d76ad26a52668275249753e423c3b0f}
+
+
+Verifica se simb é um parêntese de fechamento. 
+
+\begin{DoxyReturn}{Retorna}
+true se for um parêntese de fechamento, false se não for 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_a8962891d225bab0bc303ae18479e1819}{\index{Simbolo@{Simbolo}!is\-Digit@{is\-Digit}}
+\index{is\-Digit@{is\-Digit}!Simbolo@{Simbolo}}
+\subsubsection[{is\-Digit}]{\setlength{\rightskip}{0pt plus 5cm}bool Simbolo\-::is\-Digit (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+) const}}\label{class_simbolo_a8962891d225bab0bc303ae18479e1819}
+
+
+Método que diz se um caractere i da string simb é um dígito. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em i} & corresponde a um índice da string simb \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se for dígito e false se não 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_a01b430f8460d586518d0c76cf2d07d5a}{\index{Simbolo@{Simbolo}!is\-Open\-Par@{is\-Open\-Par}}
+\index{is\-Open\-Par@{is\-Open\-Par}!Simbolo@{Simbolo}}
+\subsubsection[{is\-Open\-Par}]{\setlength{\rightskip}{0pt plus 5cm}bool Simbolo\-::is\-Open\-Par (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_simbolo_a01b430f8460d586518d0c76cf2d07d5a}
+
+
+Verifica se simb é um parêntese de abertura. 
+
+\begin{DoxyReturn}{Retorna}
+true se for um parêntese de abertura, false se não for 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_a9279c6324f734268c1b791f48a23c11e}{\index{Simbolo@{Simbolo}!is\-Operand@{is\-Operand}}
+\index{is\-Operand@{is\-Operand}!Simbolo@{Simbolo}}
+\subsubsection[{is\-Operand}]{\setlength{\rightskip}{0pt plus 5cm}bool Simbolo\-::is\-Operand (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_simbolo_a9279c6324f734268c1b791f48a23c11e}
+
+
+Método que mostra se a string simb corresponde a um operando, ou seja, se é uma constante inteira menos que 32767. 
+
+\begin{DoxyReturn}{Retorna}
+true se for operando e false se não for 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_a6a8ad5148ec3fc647db2a6908b541ae3}{\index{Simbolo@{Simbolo}!is\-Operator@{is\-Operator}}
+\index{is\-Operator@{is\-Operator}!Simbolo@{Simbolo}}
+\subsubsection[{is\-Operator}]{\setlength{\rightskip}{0pt plus 5cm}bool Simbolo\-::is\-Operator (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}}\label{class_simbolo_a6a8ad5148ec3fc647db2a6908b541ae3}
+
+
+Método que mostra se a string simb corresponde a um operador. 
+
+Operadores para o projeto são\-: + -\/ $\ast$ / \% $^\wedge$ \begin{DoxyReturn}{Retorna}
+true se for operador e false se não for 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_aeedc387655f4f464149b6dafd83e7e88}{\index{Simbolo@{Simbolo}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!Simbolo@{Simbolo}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}bool Simbolo\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{s}
+\end{DoxyParamCaption}
+)}}\label{class_simbolo_aeedc387655f4f464149b6dafd83e7e88}
+
+
+Sobrecarga do operator !=. 
+
+Compara o valor do atributo simb a s \begin{DoxyReturn}{Retorna}
+true se s for diferente de simb 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_a56163728117b5af530e4da38c3529860}{\index{Simbolo@{Simbolo}!operator=@{operator=}}
+\index{operator=@{operator=}!Simbolo@{Simbolo}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}void Simbolo\-::operator= (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{s}
+\end{DoxyParamCaption}
+)}}\label{class_simbolo_a56163728117b5af530e4da38c3529860}
+
+
+Sobrecarga do operator =. 
+
+Altera o atributo simb igualando a s \hypertarget{class_simbolo_a7ff886b63ec4b31cd8351f545c4db897}{\index{Simbolo@{Simbolo}!operator==@{operator==}}
+\index{operator==@{operator==}!Simbolo@{Simbolo}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Simbolo\-::operator== (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{s}
+\end{DoxyParamCaption}
+)}}\label{class_simbolo_a7ff886b63ec4b31cd8351f545c4db897}
+
+
+Sobrecarga do operator ==. 
+
+Compara o atributo simb igualando a s \begin{DoxyReturn}{Retorna}
+true se s for igual a simb 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_a3b871fb6dfe874c43b9efea39d24c419}{\index{Simbolo@{Simbolo}!prec@{prec}}
+\index{prec@{prec}!Simbolo@{Simbolo}}
+\subsubsection[{prec}]{\setlength{\rightskip}{0pt plus 5cm}int Simbolo\-::prec (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_simbolo_a3b871fb6dfe874c43b9efea39d24c419}
+
+
+Calcula a precedência do símbolo contido nessa classe(stributo simb) 
+
+Precedência é a dominância que um operador tem sobre o outro. Nesse método foi considerada na maioria uma precedência reversa\-: o de maior dominância ficou com uma precedência menor. Eis a lista de precedências\-: Menos unário= 1; Parênteses= 5; Potenciação($^\wedge$)= 2; Multiplicação($\ast$), divisão(/) e resto de divisão(\%)= 3; Adição(+) e substração(-\/)= 4 Para os demais caracteres o método retorna -\/1 \begin{DoxyReturn}{Retorna}
+a precedência do símbolo 
+\end{DoxyReturn}
+\hypertarget{class_simbolo_a9717bf2cea703db82e87c10a58655171}{\index{Simbolo@{Simbolo}!set\-Col@{set\-Col}}
+\index{set\-Col@{set\-Col}!Simbolo@{Simbolo}}
+\subsubsection[{set\-Col}]{\setlength{\rightskip}{0pt plus 5cm}void Simbolo\-::set\-Col (
+\begin{DoxyParamCaption}
+\item[{int}]{col}
+\end{DoxyParamCaption}
+)}}\label{class_simbolo_a9717bf2cea703db82e87c10a58655171}
+
+
+Altera o atributo coluna. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em col} & inteiro que será o novo número do atributo coluna \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_simbolo_a8834f282dd88bf905a9f008676f874eb}{\index{Simbolo@{Simbolo}!set\-Simb@{set\-Simb}}
+\index{set\-Simb@{set\-Simb}!Simbolo@{Simbolo}}
+\subsubsection[{set\-Simb}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void Simbolo\-::set\-Simb (
+\begin{DoxyParamCaption}
+\item[{T}]{str}
+\end{DoxyParamCaption}
+)}}\label{class_simbolo_a8834f282dd88bf905a9f008676f874eb}
+
+
+Altera o atributo simb. 
+
+Nota\-: não funciona com tipos diferente de string ou char 
+\begin{DoxyParams}{Parâmetros}
+{\em str} & será o novo valor de simb \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentação das classes amigas e funções relacionadas}
+\hypertarget{class_simbolo_aa8599b912a228132e004a92ec85a2fce}{\index{Simbolo@{Simbolo}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Simbolo@{Simbolo}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std\-::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::ostream \&}]{\-\_\-os, }
+\item[{const {\bf Simbolo} \&}]{\-\_\-o\-Sim}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_simbolo_aa8599b912a228132e004a92ec85a2fce}
+
+
+Método para facilitar a impressão de dados. 
+
+Se tentarmos imprimir um objeto dessa classe, será impresso somente o valor de simb 
+
+A documentação para esta classe foi gerada a partir dos seguintes ficheiros\-:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{header_8hpp}{header.\-hpp}\item 
+src/\hyperlink{simbolo_8cpp}{simbolo.\-cpp}\end{DoxyCompactItemize}
