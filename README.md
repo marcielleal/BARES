@@ -15,10 +15,13 @@ Nota: expressões válidas para o projeto, são todas as que não envolvam nada 
 
 ###Compilação
 
-g++ -Wall -std=c++11 -I include/ ./src/main.cpp -o bares
+Dentro da pasta BARES:
+make clean
+make
 
 ###Execução
-Dentro da pasta do projeto:
+
+Dentro da pasta BARES:
 ./bin/bares arquivo_de_entrada [arquivo_de_saida]
 
 ###Lista de erros que o programa trata
@@ -36,6 +39,3 @@ Dentro da pasta do projeto:
 
 ###Disponível em: 
 https://github.com/marcielleal/BARES
-
-###Agradecimentos
-* Ao professor Selan por prorrogar o prazo da entrega do projeto

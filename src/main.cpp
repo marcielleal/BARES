@@ -5,9 +5,8 @@
  * Universidade Federal do Rio Grande do Norte \n
  * Instituto Metrópole Digital \n
  * Bacharelado em Tecnologia da Informação \n
- * Estruturas de Dados Básicas
- * Projeto BARES \n
- *
+ * Estruturas de Dados Básicas I \n
+ * Projeto BARES - Calculadora aritmética simples \n
  *
  * @section sec_descripion Descrição:
  * Realiza a análise de expressões aritméticas contidas em um arquivo de texto, tal que, cada expressão está em uma linha diferente.
@@ -18,6 +17,10 @@
  * operadores binários ('+', '-', '*', '/', '%', '^'), menos unário('-') e parênteses e que estejam sintaticamente corretas.
  *
  * @section sec_install Compilação
+ *
+ * Dentro da pasta BARES:
+ * make clean
+ * make
  *
  * @author Marciel Manoel Leal e Edye Lautter Cunha de Oliveira
  * @date Tue Oct 20 21:24:50 BRT 2015
