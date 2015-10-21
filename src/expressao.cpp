@@ -1,7 +1,14 @@
+/**
+ * @file expressao.cpp
+ * @brief Implementação dos métodos da classe Expressao
+ *
+ * @author Marciel Manoel Leal
+ *
+ */
 #include <iostream>
 #include <cstdlib>
 
-#include "header.hpp"
+#include "../include/header.hpp"
 #include "Fila.cpp"
 #include "Pilha.cpp"
 #include "simbolo.cpp"
@@ -118,7 +125,6 @@ bool Expressao::tokeniza(void){
     Simbolo num('+',0);                                        //Buffer do num
     std::string aux="";
     unsigned int i;
-    std::cout<<"TOKENS= ";
     for(i=0;i<this->getExp().length();i++){
         if(this->isValChar(i)){
             if(this->isDigit(i)){
@@ -184,7 +190,6 @@ bool Expressao::tokeniza(void){
         Simbolo last('+',0);
         filaAux.pop();
         bool inicio=1;
-        int i=0;
         while(!filaAux.empty()){
             if(!inicio){
                 last=now;
@@ -195,7 +200,7 @@ bool Expressao::tokeniza(void){
                 if(last.isOperand()||last.isClosePar())
                     this->erros->push(Erro(5,last.getCol()));
                 else if(last.isOpenPar()||last.isOperator()||last.isUnrMinus){
-                }else std::cout<<"ERRO now.isOpenPar()||now.isOperand"<<std::cout;
+                }else std::cout<<"ERRO now.isOpenPar()||now.isOperand";
             }
             else if(now.isClosePar()||now.isOperator()){
                 if(!now.isUnrMinus){
@@ -221,10 +226,9 @@ bool Expressao::tokeniza(void){
                             }
                         }
                     }else if(last.isOperand()||last.isClosePar())
-                        std::cout<<"WTF?"<<std::endl;
+                        std::cout<<"ERRO"<<std::endl;
                 }
             }else std::cout<<"ERRO"<<std::endl;
-            std::cout<<now<<",";
             this->tokens->push(now);
         }
         if(now.isOperator()){
@@ -234,23 +238,21 @@ bool Expressao::tokeniza(void){
         else if(now.isClosePar()){
         }else if(now.isOperand()){
         }else std::cout<<"ERRO"<<std::endl;
-
-    }std::cout<<std::endl;
+    }
     if(this->erros->empty())
         return true;
     return false;
 }
 void Expressao::inf2PosFix(void){
-    //tokens->clear();
 	Simbolo simb(' ',0);
 	Pilha<Simbolo> pilhaAux;
-	std::cout<<"FILA= ";
+
 	while(!this->tokens->empty()){
 		simb=tokens->front();
 		tokens->pop();
 		if(simb.isOperand()){                               //Se for operando
 			this->fila->push(simb);
-			std::cout<<simb<<",";
+
 		}
 		else{
 			if(simb.isClosePar()){										//Se for um closed parentese
@@ -261,7 +263,6 @@ void Expressao::inf2PosFix(void){
 					}
 					else{
 						this->fila->push(pilhaAux.top());
-						std::cout<<pilhaAux.top()<<",";
 						pilhaAux.pop();
 
 					}
@@ -274,7 +275,6 @@ void Expressao::inf2PosFix(void){
 							pilhaAux.pop();
 						else{
 							this->fila->push(pilhaAux.top());
-							std::cout<<pilhaAux.top()<<",";
 							pilhaAux.pop();
 						}
 					}
@@ -289,10 +289,9 @@ void Expressao::inf2PosFix(void){
 			pilhaAux.pop();
 		else{
 			this->fila->push(pilhaAux.top());
-			std::cout<<pilhaAux.top()<<",";
 			pilhaAux.pop();
 		}
-	}std::cout<<"\n";
+	}
 }
 
 int Expressao::avalPosFixa(void){
@@ -333,7 +332,6 @@ int Expressao::avalPosFixa(void){
 	if(flag) return 0;
 	return resultado;
 }
-/*Adicionei essa*/
 bool Expressao::exprValue(int &res){
     if(this->tokeniza()){
         this->inf2PosFix();
@@ -344,13 +342,12 @@ bool Expressao::exprValue(int &res){
         }
     }return false;
 }
-/* Fiz alterações aqui*/
 void Expressao::printErros(std::ostream* pOut){
     Fila<Erro> *tmp;
     tmp=this->erros;
     while(!erros->empty()){
         *pOut<<tmp->front()<<std::endl;
-        erros->pop();
+        tmp->pop();
     }
 }
 void Expressao::clear(){

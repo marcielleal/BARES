@@ -1,7 +1,14 @@
+/**
+ * @file simbolo.cpp
+ * @brief Implementação dos métodos da classe Simbolo
+ *
+ * @author Marciel Manoel Leal
+ *
+ */
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
-#include "header.hpp"
+#include "../include/header.hpp"
 
 void Simbolo::operator=(std::string s){
     this->isUnrMinus=false;

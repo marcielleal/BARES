@@ -1,14 +1,13 @@
-/** 
+/**
  * @file Fila.cpp
  * @brief Implementação dos métodos da classe Pilha
- * 
+ *
  * @author Edye Lautter Cunha de Oliveira
  * @date Sat Oct 10 23:03:50 BRT 2015
- * 
+ *
  */
 #include <iostream>
-#include "header.hpp"
-
+#include "../include/header.hpp"
 
 template<typename F>
 Fila<F>::Fila(int _MaxSz){
@@ -90,11 +89,6 @@ F Fila<F>::back() const
 {
 	return this->pt_fila[this->fim];
 }
-template <typename F>
-void Fila<F>::clear(void){
-    while(!this->empty())
-        this->pop();
-}
 template<typename F>
 bool Fila<F>::_duplica(){
 	F *aux=this->pt_fila;
@@ -108,19 +102,4 @@ bool Fila<F>::_duplica(){
     this->fim=this->tamanho-1;
 	this->capacidade*=2;
 	return true;
-}/*
-int main(){
-    Fila<int> fila;
-    for(int i=0;i<100;i++){
-        fila.push(i);
-        std::cout<<"EMPTY= "<<fila.empty()<<"TAMANHO= "<<fila.size()<<"\n"<<fila<<std::endl;
-    }
-    for(int i=0;i<100;i++){
-        fila.pop();
-        std::cout<<"EMPTY= "<<fila.empty()<<"TAMANHO= "<<fila.size()<<"\n"<<fila<<std::endl;
-    }
-
-    return 0;
 }
-
-*/

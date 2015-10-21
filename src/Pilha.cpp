@@ -1,18 +1,13 @@
-/** 
+/**
  * @file Pilha.cpp
  * @brief Implementação dos métodos da classe Pilha
- * 
- * Descrição completa do conteúdo do arquivo
- *
- * 
- * Links para documentação externa como wiki.
  *
  * @author Edye Lautter Cunha de Oliveira
  * @date Sat Oct 10 23:03:50 BRT 2015
- * 
+ *
  */
 #include <iostream>
-#include "header.hpp"
+#include "../include/header.hpp"
 
 template<typename P>
 Pilha<P>::Pilha(int _MaxSz){

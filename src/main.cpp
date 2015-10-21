@@ -1,29 +1,33 @@
 /**
- * @mainpage bares
+ * @mainpage BARES
  *
- * @section sec_intro Introdução
+ * @section sec_header BARES
+ * Universidade Federal do Rio Grande do Norte \n
+ * Instituto Metrópole Digital \n
+ * Bacharelado em Tecnologia da Informação \n
+ * Estruturas de Dados Básicas
+ * Projeto BARES \n
  *
- * Projeto solicitado pelo professor Sela Rodrigues dos Santos
  *
- * @section sec_install Compilação e Instalação
+ * @section sec_descripion Descrição:
+ * Realiza a análise de expressões aritméticas contidas em um arquivo de texto, tal que, cada expressão está em uma linha diferente.
+ * Se forem expressões válidas, o programa calcula seus valores e envia para um arquivo de saída ou para a saída padrão.
+ * Se não forem expressões válidas, envia uma lista de erros para um arquivo de saída ou para a saída padrão(cada erro está em uma linha diferente).
  *
- * Informações sobre compilação e instalação do programa, dependências,
- * links para o SVN, wiki, etc.
+ * Nota: expressões válidas para o projeto, são todas as que não envolvam nada além de números inteiros (entre -32767 e 32767),
+ * operadores binários ('+', '-', '*', '/', '%', '^'), menos unário('-') e parênteses e que estejam sintaticamente corretas.
  *
- * @section sec_summary Resumo
+ * @section sec_install Compilação
  *
  * @author Marciel Manoel Leal e Edye Lautter Cunha de Oliveira
- * @date Tue Oct 20 14:03:50 BRT 2015
+ * @date Tue Oct 20 21:24:50 BRT 2015
  */
-
 #include <istream>
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "header.hpp"
-//#include "simbolo.cpp"
+#include "../include/header.hpp"
 #include "expressao.cpp"
-//#include "erro.cpp"
 
 int main (int argc, char *argv[]){
     std::ostream* pOut;
@@ -66,7 +70,7 @@ int main (int argc, char *argv[]){
 		*pOut<<e.getExp()<<std::endl;
         int i;
         if(e.exprValue(i)){
-                *pOut<<i<<std::endl;
+            *pOut<<i<<std::endl;
         }else e.printErros(pOut);
     }
 
