@@ -16,8 +16,8 @@ Nota: expressões válidas para o projeto, são todas as que não envolvam nada 
 ###Compilação
 
 Dentro da pasta BARES:
-make clean
-make
+* make clean
+* make
 
 ###Execução
 
