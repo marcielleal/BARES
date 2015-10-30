@@ -21,7 +21,7 @@ Dentro da pasta BARES:
 
 ###Execução
 
-Dentro da pasta BARES:
+######Dentro da pasta BARES execute:
 
 ./bin/bares arquivo_de_entrada [arquivo_de_saida]
 
