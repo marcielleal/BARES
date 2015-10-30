@@ -22,6 +22,7 @@ Dentro da pasta BARES:
 ###Execução
 
 Dentro da pasta BARES:
+
 ./bin/bares arquivo_de_entrada [arquivo_de_saida]
 
 ###Lista de erros que o programa trata
