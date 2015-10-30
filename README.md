@@ -21,9 +21,9 @@ Dentro da pasta BARES:
 
 ###Execução
 
-######Dentro da pasta BARES execute:
+Dentro da pasta BARES execute:
 
-./bin/bares arquivo_de_entrada [arquivo_de_saida]
+* ./bin/bares arquivo_de_entrada [arquivo_de_saida]
 
 ###Lista de erros que o programa trata
 #####(Coluna x) indica a coluna na qual se encontra o erro
