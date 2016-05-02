@@ -115,8 +115,9 @@ bool Expressao::isIgnChar(unsigned int c){
     return false;
 }
 bool Expressao::tokeniza(void){
-   if(this->isEmptyExp()&&exp!="\n"){
-        this->erros->push(Erro(10,-1));
+   if(this->isEmptyExp()){
+   	if(exp!="\n")
+            this->erros->push(Erro(10,-1));
         return false;
    }//this->clear();
 
